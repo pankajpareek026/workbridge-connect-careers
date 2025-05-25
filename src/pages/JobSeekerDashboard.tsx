@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, BookMark, FileText, User, Search } from 'lucide-react';
+import { Briefcase, Bookmark, FileText, User, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const JobSeekerDashboard = () => {
@@ -89,7 +89,7 @@ const JobSeekerDashboard = () => {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => navigate('/saved-jobs')}>
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-2">
-                <BookMark className="h-5 w-5 text-workbridge-accent" />
+                <Bookmark className="h-5 w-5 text-workbridge-accent" />
                 <CardTitle className="text-lg">Saved Jobs</CardTitle>
               </div>
             </CardHeader>
@@ -134,7 +134,7 @@ const JobSeekerDashboard = () => {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
-                <BookMark className="h-5 w-5" />
+                <Bookmark className="h-5 w-5" />
                 <span>Saved Jobs</span>
               </CardTitle>
               <CardDescription>Jobs you've bookmarked for later</CardDescription>
