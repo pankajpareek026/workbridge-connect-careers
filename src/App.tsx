@@ -17,6 +17,10 @@ import JobDetail from "./pages/JobDetail";
 import MyApplications from "./pages/MyApplications";
 import SavedJobs from "./pages/SavedJobs";
 import Profile from "./pages/Profile";
+import MyJobs from "./pages/MyJobs";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminUsers from "./pages/AdminUsers";
+import AdminCompanies from "./pages/AdminCompanies";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +45,10 @@ const App = () => (
           <Route path="/applications" element={<MyApplications />} />
           <Route path="/saved-jobs" element={<SavedJobs />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/my-jobs" element={<MyJobs />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/admin-users" element={<AdminUsers />} />
+          <Route path="/admin-companies" element={<AdminCompanies />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
