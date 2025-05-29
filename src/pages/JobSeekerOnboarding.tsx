@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,14 +6,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Briefcase, User, Upload, Plus, Trash2 } from 'lucide-react';
+import { Briefcase, User, Plus, Trash2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import FileUpload from '@/components/FileUpload';
 
 const JobSeekerOnboarding = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
 
   const [personalInfo, setPersonalInfo] = useState({
     fullName: '',
@@ -327,11 +328,12 @@ const JobSeekerOnboarding = () => {
             </div>
             
             <div className="mt-6">
-              <Label>Upload Resume (PDF only)</Label>
-              <div className="mt-2 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                <Upload className="h-8 w-8 mx-auto text-gray-400 mb-2" />
-                <p className="text-sm text-gray-600">Click to upload or drag and drop your resume</p>
-                <p className="text-xs text-gray-500 mt-1">PDF files only, max 5MB</p>
+              <Label>Upload Resume</Label>
+              <div className="mt-2">
+                <FileUpload
+                  onFileSelect={setResumeFile}
+                  currentFile={resumeFile}
+                />
               </div>
             </div>
           </div>

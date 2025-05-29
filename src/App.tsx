@@ -14,6 +14,9 @@ import EmployerOnboarding from "./pages/EmployerOnboarding";
 import JobBrowser from "./pages/JobBrowser";
 import PostJob from "./pages/PostJob";
 import JobDetail from "./pages/JobDetail";
+import MyApplications from "./pages/MyApplications";
+import SavedJobs from "./pages/SavedJobs";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +38,9 @@ const App = () => (
           <Route path="/jobs" element={<JobBrowser />} />
           <Route path="/job/:jobId" element={<JobDetail />} />
           <Route path="/post-job" element={<PostJob />} />
+          <Route path="/applications" element={<MyApplications />} />
+          <Route path="/saved-jobs" element={<SavedJobs />} />
+          <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
