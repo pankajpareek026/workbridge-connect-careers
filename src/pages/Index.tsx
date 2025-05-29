@@ -52,7 +52,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Button 
               size="lg" 
-              onClick={() => navigate('/job-seeker-register')}
+              onClick={() => navigate('/register')}
               className="bg-workbridge-primary hover:bg-workbridge-primary/90 px-8 py-6 text-lg"
             >
               <User className="mr-2 h-5 w-5" />
@@ -61,11 +61,22 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="outline"
-              onClick={() => navigate('/employer-register')}
+              onClick={() => navigate('/register')}
               className="border-workbridge-primary text-workbridge-primary hover:bg-workbridge-primary hover:text-white px-8 py-6 text-lg"
             >
               <Users className="mr-2 h-5 w-5" />
               Hire Talent
+            </Button>
+          </div>
+          
+          {/* Quick Browse Jobs Link */}
+          <div className="mt-6">
+            <Button 
+              variant="link" 
+              onClick={() => navigate('/jobs')}
+              className="text-workbridge-primary hover:underline"
+            >
+              Or browse jobs without signing up →
             </Button>
           </div>
         </div>

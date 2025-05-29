@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,20 +36,19 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* WorkBridge Custom Colors */
+    --workbridge-primary: 217 91% 60%;
+    --workbridge-secondary: 142 76% 36%;
+    --workbridge-accent: 262 83% 58%;
+    --workbridge-success: 142 71% 45%;
   }
 
   .dark {
@@ -98,4 +98,84 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .text-workbridge-primary {
+    color: hsl(var(--workbridge-primary));
+  }
+  
+  .text-workbridge-secondary {
+    color: hsl(var(--workbridge-secondary));
+  }
+  
+  .text-workbridge-accent {
+    color: hsl(var(--workbridge-accent));
+  }
+  
+  .text-workbridge-success {
+    color: hsl(var(--workbridge-success));
+  }
+  
+  .bg-workbridge-primary {
+    background-color: hsl(var(--workbridge-primary));
+  }
+  
+  .bg-workbridge-secondary {
+    background-color: hsl(var(--workbridge-secondary));
+  }
+  
+  .bg-workbridge-accent {
+    background-color: hsl(var(--workbridge-accent));
+  }
+  
+  .bg-workbridge-success {
+    background-color: hsl(var(--workbridge-success));
+  }
+  
+  .border-workbridge-primary {
+    border-color: hsl(var(--workbridge-primary));
+  }
+  
+  .hover\:bg-workbridge-primary\/90:hover {
+    background-color: hsl(var(--workbridge-primary) / 0.9);
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* Animation Classes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.6s ease-out;
 }
