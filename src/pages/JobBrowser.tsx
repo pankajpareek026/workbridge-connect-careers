@@ -12,7 +12,7 @@ const JobBrowser = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
-  const [jobTypeFilter, setJobTypeFilter] = useState('');
+  const [jobTypeFilter, setJobTypeFilter] = useState('all');
   const [savedJobs, setSavedJobs] = useState<number[]>([]);
 
   const jobs = [
@@ -78,7 +78,7 @@ const JobBrowser = () => {
     const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          job.company.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesLocation = !locationFilter || job.location.toLowerCase().includes(locationFilter.toLowerCase());
-    const matchesType = !jobTypeFilter || job.type === jobTypeFilter;
+    const matchesType = jobTypeFilter === 'all' || job.type === jobTypeFilter;
     
     return matchesSearch && matchesLocation && matchesType;
   });
@@ -139,7 +139,7 @@ const JobBrowser = () => {
                   <SelectValue placeholder="Job Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Types</SelectItem>
+                  <SelectItem value="all">All Types</SelectItem>
                   <SelectItem value="Full-time">Full-time</SelectItem>
                   <SelectItem value="Part-time">Part-time</SelectItem>
                   <SelectItem value="Contract">Contract</SelectItem>
