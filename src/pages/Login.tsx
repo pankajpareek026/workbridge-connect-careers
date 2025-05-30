@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Briefcase, User, Users } from 'lucide-react';
+import { Briefcase, User, Users, Shield } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = async (userType: 'jobseeker' | 'employer') => {
+  const handleLogin = async (userType: 'jobseeker' | 'employer' | 'admin') => {
     setIsLoading(true);
     
     // Simulate login process
@@ -27,8 +27,10 @@ const Login = () => {
       
       if (userType === 'jobseeker') {
         navigate('/job-seeker-dashboard');
-      } else {
+      } else if (userType === 'employer') {
         navigate('/employer-dashboard');
+      } else {
+        navigate('/admin-dashboard');
       }
     }, 1500);
   };
@@ -49,14 +51,18 @@ const Login = () => {
         <Card className="shadow-lg border-0">
           <CardContent className="p-6">
             <Tabs defaultValue="jobseeker" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="jobseeker" className="flex items-center space-x-2">
+              <TabsList className="grid w-full grid-cols-3 mb-6">
+                <TabsTrigger value="jobseeker" className="flex items-center space-x-1">
                   <User className="h-4 w-4" />
                   <span>Job Seeker</span>
                 </TabsTrigger>
-                <TabsTrigger value="employer" className="flex items-center space-x-2">
+                <TabsTrigger value="employer" className="flex items-center space-x-1">
                   <Users className="h-4 w-4" />
                   <span>Employer</span>
+                </TabsTrigger>
+                <TabsTrigger value="admin" className="flex items-center space-x-1">
+                  <Shield className="h-4 w-4" />
+                  <span>Admin</span>
                 </TabsTrigger>
               </TabsList>
 
@@ -123,6 +129,40 @@ const Login = () => {
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing In..." : "Sign In as Employer"}
+                    </Button>
+                  </div>
+                </form>
+              </TabsContent>
+
+              <TabsContent value="admin">
+                <form onSubmit={(e) => { e.preventDefault(); handleLogin('admin'); }}>
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="admin-email">Admin Email</Label>
+                      <Input
+                        id="admin-email"
+                        type="email"
+                        placeholder="admin@workbridge.com"
+                        className="mt-1"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="admin-password">Admin Password</Label>
+                      <Input
+                        id="admin-password"
+                        type="password"
+                        placeholder="Enter admin password"
+                        className="mt-1"
+                        required
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Signing In..." : "Sign In as Admin"}
                     </Button>
                   </div>
                 </form>
