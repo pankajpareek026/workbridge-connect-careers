@@ -18,6 +18,8 @@ import MyApplications from "./pages/MyApplications";
 import SavedJobs from "./pages/SavedJobs";
 import Profile from "./pages/Profile";
 import MyJobs from "./pages/MyJobs";
+import CompanyProfile from "./pages/CompanyProfile";
+import EmployerApplications from "./pages/EmployerApplications";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminUsers from "./pages/AdminUsers";
 import AdminCompanies from "./pages/AdminCompanies";
@@ -46,6 +48,8 @@ const App = () => (
           <Route path="/saved-jobs" element={<SavedJobs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/my-jobs" element={<MyJobs />} />
+          <Route path="/company-profile" element={<CompanyProfile />} />
+          <Route path="/employer-applications" element={<EmployerApplications />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-users" element={<AdminUsers />} />
           <Route path="/admin-companies" element={<AdminCompanies />} />
