@@ -24,6 +24,10 @@ import EmployerApplications from "./pages/EmployerApplications";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminUsers from "./pages/AdminUsers";
 import AdminCompanies from "./pages/AdminCompanies";
+import AdminJobs from "./pages/AdminJobs";
+import AdminReports from "./pages/AdminReports";
+import AdminActivity from "./pages/AdminActivity";
+import AdminReviews from "./pages/AdminReviews";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,6 +58,10 @@ const App = () => (
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-users" element={<AdminUsers />} />
           <Route path="/admin-companies" element={<AdminCompanies />} />
+          <Route path="/admin-jobs" element={<AdminJobs />} />
+          <Route path="/admin-reports" element={<AdminReports />} />
+          <Route path="/admin-activity" element={<AdminActivity />} />
+          <Route path="/admin-reviews" element={<AdminReviews />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
