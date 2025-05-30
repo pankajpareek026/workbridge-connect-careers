@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Building, MapPin, Globe, Users, Edit, Save, X } from 'lucide-react';
+import { Building, MapPin, Globe, Users, Edit, Save, X, Plus } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { useToast } from '@/hooks/use-toast';
 
