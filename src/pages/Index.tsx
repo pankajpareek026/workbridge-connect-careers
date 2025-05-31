@@ -5,32 +5,35 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 import AdminContact from '@/components/AdminContact';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const Index = () => {
   const navigate = useNavigate();
+  const { t, language } = useLanguage();
 
   const stats = [
-    { label: 'Active Jobs', value: '500+', icon: Briefcase },
-    { label: 'Companies', value: '200+', icon: Building },
-    { label: 'Job Seekers', value: '10k+', icon: Users },
-    { label: 'Success Rate', value: '85%', icon: TrendingUp },
+    { label: t('stats.activeJobs'), value: '500+', icon: Briefcase },
+    { label: t('stats.companies'), value: '200+', icon: Building },
+    { label: t('stats.jobSeekers'), value: '10k+', icon: Users },
+    { label: t('stats.successRate'), value: '85%', icon: TrendingUp },
   ];
 
   const features = [
     {
-      title: 'Smart Job Matching',
-      description: 'AI-powered algorithm matches your skills with the perfect opportunities',
+      title: t('features.smartMatching'),
+      description: t('features.smartMatchingDesc'),
       icon: TrendingUp
     },
     {
-      title: 'Verified Companies',
-      description: 'All employers are verified to ensure legitimate job opportunities',
+      title: t('features.verifiedCompanies'),
+      description: t('features.verifiedCompaniesDesc'),
       icon: CheckCircle
     },
     {
-      title: 'Real-time Applications',
-      description: 'Apply instantly and track your application status in real-time',
+      title: t('features.realTimeApps'),
+      description: t('features.realTimeAppsDesc'),
       icon: Briefcase
     }
   ];
@@ -40,14 +43,14 @@ const Index = () => {
       name: 'Sarah Johnson',
       role: 'Software Engineer',
       company: 'TechCorp',
-      content: 'Found my dream job in just 2 weeks! The platform made the entire process seamless.',
+      content: t('testimonials.sarah'),
       rating: 5
     },
     {
       name: 'Mike Chen',
       role: 'HR Director',
       company: 'StartupXYZ',
-      content: 'Best platform for finding quality candidates. Highly recommend for any employer.',
+      content: t('testimonials.mike'),
       rating: 5
     }
   ];
@@ -63,12 +66,13 @@ const Index = () => {
               <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
             </div>
             <div className="flex items-center space-x-2 md:space-x-4">
+              <LanguageSwitcher />
               <Button 
                 variant="ghost" 
                 onClick={() => navigate('/contact-us')}
                 className="text-gray-600 hover:text-workbridge-primary text-sm"
               >
-                Contact
+                {t('nav.contact')}
               </Button>
               <Button 
                 variant="ghost" 
@@ -76,13 +80,13 @@ const Index = () => {
                 className="text-gray-600 hover:text-workbridge-primary hidden sm:flex"
               >
                 <Shield className="h-4 w-4 mr-2" />
-                Admin
+                {t('nav.admin')}
               </Button>
               <Button variant="outline" onClick={() => navigate('/login')} className="text-sm">
-                Sign In
+                {t('nav.signIn')}
               </Button>
               <Button onClick={() => navigate('/register')} className="bg-workbridge-primary text-sm">
-                Get Started
+                {t('nav.getStarted')}
               </Button>
             </div>
           </div>
@@ -94,15 +98,15 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <Badge className="mb-6 bg-workbridge-primary/10 text-workbridge-primary">
-              🚀 Now Connecting 10,000+ Professionals
+              {t('hero.tagline')}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Bridge Your Career to 
-              <span className="text-workbridge-primary"> Success</span>
+              {t('hero.title')}
+              <span className="text-workbridge-primary"> {t('hero.titleHighlight')}</span>
+              {language === 'hi' && <span> {t('hero.titleEnd')}</span>}
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-              Connect with top employers and discover opportunities that match your skills, 
-              ambitions, and career goals. Your next chapter starts here.
+              {t('hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -110,7 +114,7 @@ const Index = () => {
                 className="bg-workbridge-primary hover:bg-workbridge-primary/90 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
-                Find Your Dream Job
+                {t('hero.findJob')}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
               <Button 
@@ -119,7 +123,7 @@ const Index = () => {
                 className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
-                Post a Job
+                {t('hero.postJob')}
               </Button>
             </div>
           </div>
@@ -150,9 +154,9 @@ const Index = () => {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose WorkBridge?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('features.title')}</h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              We've built the most advanced job matching platform to connect talent with opportunity
+              {t('features.subtitle')}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -180,8 +184,8 @@ const Index = () => {
       <section className="py-12 md:py-20 bg-gradient-to-r from-workbridge-primary/5 to-workbridge-secondary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
-            <p className="text-lg md:text-xl text-gray-600">Hear from professionals who found their perfect match</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('testimonials.title')}</h2>
+            <p className="text-lg md:text-xl text-gray-600">{t('testimonials.subtitle')}</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
@@ -215,9 +219,9 @@ const Index = () => {
       <section className="py-12 md:py-20 bg-gradient-to-r from-workbridge-primary to-workbridge-secondary">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Career?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('cta.title')}</h2>
             <p className="text-lg md:text-xl text-white/90 mb-8">
-              Join thousands of professionals who have already found their perfect job match
+              {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -226,7 +230,7 @@ const Index = () => {
                 className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
-                Start Your Journey
+                {t('cta.startJourney')}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </div>
@@ -244,58 +248,58 @@ const Index = () => {
                 <span className="text-xl font-bold">WorkBridge</span>
               </div>
               <p className="text-gray-400 text-sm">
-                Connecting talent with opportunity through innovative job matching technology.
+                {t('footer.description')}
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
+              <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
               <div className="space-y-2 text-sm">
                 <button onClick={() => navigate('/contact-us')} className="block text-gray-400 hover:text-white transition-colors">
-                  Contact Us
+                  {t('footer.contactUs')}
                 </button>
                 <button onClick={() => navigate('/privacy-policy')} className="block text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
+                  {t('footer.privacyPolicy')}
                 </button>
                 <button onClick={() => navigate('/terms-of-service')} className="block text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
+                  {t('footer.termsOfService')}
                 </button>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Job Seekers</h3>
+              <h3 className="font-semibold mb-4">{t('footer.jobSeekers')}</h3>
               <div className="space-y-2 text-sm">
                 <button onClick={() => navigate('/jobs')} className="block text-gray-400 hover:text-white transition-colors">
-                  Browse Jobs
+                  {t('footer.browseJobs')}
                 </button>
                 <button onClick={() => navigate('/register')} className="block text-gray-400 hover:text-white transition-colors">
-                  Create Account
+                  {t('footer.createAccount')}
                 </button>
                 <button onClick={() => navigate('/login')} className="block text-gray-400 hover:text-white transition-colors">
-                  Sign In
+                  {t('nav.signIn')}
                 </button>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Employers</h3>
+              <h3 className="font-semibold mb-4">{t('footer.employers')}</h3>
               <div className="space-y-2 text-sm">
                 <button onClick={() => navigate('/post-job')} className="block text-gray-400 hover:text-white transition-colors">
-                  Post a Job
+                  {t('hero.postJob')}
                 </button>
                 <button onClick={() => navigate('/register')} className="block text-gray-400 hover:text-white transition-colors">
-                  Employer Sign Up
+                  {t('footer.employerSignUp')}
                 </button>
                 <button onClick={() => navigate('/login')} className="block text-gray-400 hover:text-white transition-colors">
-                  Employer Login
+                  {t('footer.employerLogin')}
                 </button>
               </div>
             </div>
           </div>
           
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2024 WorkBridge. All rights reserved.</p>
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

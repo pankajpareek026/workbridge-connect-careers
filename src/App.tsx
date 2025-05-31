@@ -1,10 +1,10 @@
-
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
@@ -39,45 +39,47 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/job-seeker-dashboard" element={<JobSeekerDashboard />} />
-            <Route path="/employer-dashboard" element={<EmployerDashboard />} />
-            <Route path="/job-seeker-onboarding" element={<JobSeekerOnboarding />} />
-            <Route path="/employer-onboarding" element={<EmployerOnboarding />} />
-            <Route path="/jobs" element={<JobBrowser />} />
-            <Route path="/job/:jobId" element={<JobDetail />} />
-            <Route path="/post-job" element={<PostJob />} />
-            <Route path="/applications" element={<MyApplications />} />
-            <Route path="/saved-jobs" element={<SavedJobs />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/my-jobs" element={<MyJobs />} />
-            <Route path="/company-profile" element={<CompanyProfile />} />
-            <Route path="/employer-applications" element={<EmployerApplications />} />
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
-            <Route path="/admin-users" element={<AdminUsers />} />
-            <Route path="/admin-companies" element={<AdminCompanies />} />
-            <Route path="/admin-jobs" element={<AdminJobs />} />
-            <Route path="/admin-reports" element={<AdminReports />} />
-            <Route path="/admin-activity" element={<AdminActivity />} />
-            <Route path="/admin-reviews" element={<AdminReviews />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <LanguageProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/job-seeker-dashboard" element={<JobSeekerDashboard />} />
+              <Route path="/employer-dashboard" element={<EmployerDashboard />} />
+              <Route path="/job-seeker-onboarding" element={<JobSeekerOnboarding />} />
+              <Route path="/employer-onboarding" element={<EmployerOnboarding />} />
+              <Route path="/jobs" element={<JobBrowser />} />
+              <Route path="/job/:jobId" element={<JobDetail />} />
+              <Route path="/post-job" element={<PostJob />} />
+              <Route path="/applications" element={<MyApplications />} />
+              <Route path="/saved-jobs" element={<SavedJobs />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/my-jobs" element={<MyJobs />} />
+              <Route path="/company-profile" element={<CompanyProfile />} />
+              <Route path="/employer-applications" element={<EmployerApplications />} />
+              <Route path="/admin-dashboard" element={<AdminDashboard />} />
+              <Route path="/admin-users" element={<AdminUsers />} />
+              <Route path="/admin-companies" element={<AdminCompanies />} />
+              <Route path="/admin-jobs" element={<AdminJobs />} />
+              <Route path="/admin-reports" element={<AdminReports />} />
+              <Route path="/admin-activity" element={<AdminActivity />} />
+              <Route path="/admin-reviews" element={<AdminReviews />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </LanguageProvider>
   </ErrorBoundary>
 );
 
