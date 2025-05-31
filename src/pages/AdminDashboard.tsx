@@ -3,8 +3,10 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, Briefcase, Building2, TrendingUp, UserCheck, AlertTriangle } from 'lucide-react';
+import { Users, Briefcase, Building2, TrendingUp, UserCheck, AlertTriangle, Calendar, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import AdminNavigation from '@/components/AdminNavigation';
+import AdminNotifications from '@/components/AdminNotifications';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -15,7 +17,9 @@ const AdminDashboard = () => {
     totalCompanies: 89,
     activeApplications: 342,
     newUsersToday: 23,
-    pendingReviews: 12
+    pendingReviews: 12,
+    monthlyRevenue: 15420,
+    jobsPostedThisWeek: 28
   };
 
   const recentActivity = [
@@ -33,28 +37,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge Admin</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" onClick={() => navigate('/admin-users')}>
-                Manage Users
-              </Button>
-              <Button variant="outline" onClick={() => navigate('/admin-companies')}>
-                Manage Companies
-              </Button>
-              <Button variant="outline" onClick={() => navigate('/')}>
-                Sign Out
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <AdminNavigation />
 
       <div className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
@@ -63,9 +46,9 @@ const AdminDashboard = () => {
           <p className="text-gray-600">Monitor and manage the WorkBridge platform</p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
-          <Card>
+        {/* Enhanced Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-blue-100 rounded-lg">
@@ -74,12 +57,13 @@ const AdminDashboard = () => {
                 <div>
                   <p className="text-2xl font-bold text-gray-900">{stats.totalUsers.toLocaleString()}</p>
                   <p className="text-gray-600 text-sm">Total Users</p>
+                  <p className="text-green-600 text-xs">+{stats.newUsersToday} today</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-green-100 rounded-lg">
@@ -88,12 +72,13 @@ const AdminDashboard = () => {
                 <div>
                   <p className="text-2xl font-bold text-gray-900">{stats.totalJobs}</p>
                   <p className="text-gray-600 text-sm">Active Jobs</p>
+                  <p className="text-green-600 text-xs">+{stats.jobsPostedThisWeek} this week</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-purple-100 rounded-lg">
@@ -102,57 +87,31 @@ const AdminDashboard = () => {
                 <div>
                   <p className="text-2xl font-bold text-gray-900">{stats.totalCompanies}</p>
                   <p className="text-gray-600 text-sm">Companies</p>
+                  <p className="text-yellow-600 text-xs">{stats.pendingReviews} pending</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-orange-100 rounded-lg">
-                  <TrendingUp className="h-5 w-5 text-orange-600" />
+                  <DollarSign className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-gray-900">{stats.activeApplications}</p>
-                  <p className="text-gray-600 text-sm">Applications</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-2">
-                <div className="p-2 bg-cyan-100 rounded-lg">
-                  <UserCheck className="h-5 w-5 text-cyan-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-900">{stats.newUsersToday}</p>
-                  <p className="text-gray-600 text-sm">New Today</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-2">
-                <div className="p-2 bg-red-100 rounded-lg">
-                  <AlertTriangle className="h-5 w-5 text-red-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-900">{stats.pendingReviews}</p>
-                  <p className="text-gray-600 text-sm">Pending Reviews</p>
+                  <p className="text-2xl font-bold text-gray-900">${stats.monthlyRevenue.toLocaleString()}</p>
+                  <p className="text-gray-600 text-sm">Monthly Revenue</p>
+                  <p className="text-green-600 text-xs">+12% vs last month</p>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           {/* Recent Activity */}
-          <Card>
+          <Card className="lg:col-span-2">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <TrendingUp className="h-5 w-5" />
@@ -163,7 +122,7 @@ const AdminDashboard = () => {
             <CardContent>
               <div className="space-y-4">
                 {recentActivity.map((activity) => (
-                  <div key={activity.id} className="flex items-start space-x-3 p-3 border rounded-lg">
+                  <div key={activity.id} className="flex items-start space-x-3 p-3 border rounded-lg hover:bg-gray-50 transition-colors">
                     <div className="flex-1">
                       <p className="text-sm text-gray-900">{activity.message}</p>
                       <p className="text-xs text-gray-500 mt-1">{activity.time}</p>
@@ -180,68 +139,72 @@ const AdminDashboard = () => {
             </CardContent>
           </Card>
 
-          {/* Pending Reviews */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <AlertTriangle className="h-5 w-5" />
-                <span>Pending Reviews</span>
-              </CardTitle>
-              <CardDescription>Items requiring admin attention</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {pendingReviews.map((review) => (
-                  <div key={review.id} className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">{review.type}</h3>
-                      <p className="text-sm text-gray-600">{review.company || review.job || review.user}</p>
-                      <p className="text-xs text-gray-500">Submitted: {review.submitted}</p>
-                    </div>
-                    <div className="flex space-x-2">
-                      <Button variant="outline" size="sm">
-                        Review
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Button variant="outline" className="w-full mt-4" onClick={() => navigate('/admin-reviews')}>
-                View All Reviews
-              </Button>
-            </CardContent>
-          </Card>
+          {/* Admin Notifications */}
+          <div className="space-y-6">
+            <AdminNotifications />
+          </div>
         </div>
 
+        {/* Pending Reviews */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <AlertTriangle className="h-5 w-5" />
+              <span>Pending Reviews</span>
+            </CardTitle>
+            <CardDescription>Items requiring admin attention</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {pendingReviews.map((review) => (
+                <div key={review.id} className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-semibold text-gray-900">{review.type}</h3>
+                    <Badge variant="secondary" className="text-xs">Pending</Badge>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">{review.company || review.job || review.user}</p>
+                  <div className="flex justify-between items-center">
+                    <p className="text-xs text-gray-500">Submitted: {review.submitted}</p>
+                    <Button variant="outline" size="sm">
+                      Review
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Button variant="outline" className="w-full mt-4" onClick={() => navigate('/admin-reviews')}>
+              View All Reviews
+            </Button>
+          </CardContent>
+        </Card>
+
         {/* Quick Actions */}
-        <div className="mt-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>Common administrative tasks</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Button variant="outline" onClick={() => navigate('/admin-users')}>
-                  <Users className="h-4 w-4 mr-2" />
-                  Manage Users
-                </Button>
-                <Button variant="outline" onClick={() => navigate('/admin-companies')}>
-                  <Building2 className="h-4 w-4 mr-2" />
-                  Manage Companies
-                </Button>
-                <Button variant="outline" onClick={() => navigate('/admin-jobs')}>
-                  <Briefcase className="h-4 w-4 mr-2" />
-                  Manage Jobs
-                </Button>
-                <Button variant="outline" onClick={() => navigate('/admin-reports')}>
-                  <TrendingUp className="h-4 w-4 mr-2" />
-                  View Reports
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Quick Actions</CardTitle>
+            <CardDescription>Common administrative tasks</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Button variant="outline" onClick={() => navigate('/admin-users')} className="h-auto p-4 flex-col space-y-2">
+                <Users className="h-6 w-6" />
+                <span>Manage Users</span>
+              </Button>
+              <Button variant="outline" onClick={() => navigate('/admin-companies')} className="h-auto p-4 flex-col space-y-2">
+                <Building2 className="h-6 w-6" />
+                <span>Manage Companies</span>
+              </Button>
+              <Button variant="outline" onClick={() => navigate('/admin-jobs')} className="h-auto p-4 flex-col space-y-2">
+                <Briefcase className="h-6 w-6" />
+                <span>Manage Jobs</span>
+              </Button>
+              <Button variant="outline" onClick={() => navigate('/admin-settings')} className="h-auto p-4 flex-col space-y-2">
+                <TrendingUp className="h-6 w-6" />
+                <span>Settings</span>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
