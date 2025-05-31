@@ -52,15 +52,16 @@ const Login = () => {
           <CardContent className="p-6">
             <Tabs defaultValue="jobseeker" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="jobseeker" className="flex items-center space-x-1">
+                <TabsTrigger value="jobseeker" className="flex items-center space-x-1 text-xs sm:text-sm">
                   <User className="h-4 w-4" />
-                  <span>Job Seeker</span>
+                  <span className="hidden sm:inline">Job Seeker</span>
+                  <span className="sm:hidden">Seeker</span>
                 </TabsTrigger>
-                <TabsTrigger value="employer" className="flex items-center space-x-1">
+                <TabsTrigger value="employer" className="flex items-center space-x-1 text-xs sm:text-sm">
                   <Users className="h-4 w-4" />
                   <span>Employer</span>
                 </TabsTrigger>
-                <TabsTrigger value="admin" className="flex items-center space-x-1">
+                <TabsTrigger value="admin" className="flex items-center space-x-1 text-xs sm:text-sm">
                   <Shield className="h-4 w-4" />
                   <span>Admin</span>
                 </TabsTrigger>
@@ -170,7 +171,11 @@ const Login = () => {
             </Tabs>
 
             <div className="mt-6 text-center space-y-4">
-              <Button variant="link" className="text-workbridge-primary">
+              <Button 
+                variant="link" 
+                className="text-workbridge-primary"
+                onClick={() => navigate('/forgot-password')}
+              >
                 Forgot your password?
               </Button>
               <div className="text-sm text-gray-600">

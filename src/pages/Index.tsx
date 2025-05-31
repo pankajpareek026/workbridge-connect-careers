@@ -62,19 +62,26 @@ const Index = () => {
               <Briefcase className="h-8 w-8 text-workbridge-primary" />
               <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <Button 
+                variant="ghost" 
+                onClick={() => navigate('/contact-us')}
+                className="text-gray-600 hover:text-workbridge-primary text-sm"
+              >
+                Contact
+              </Button>
               <Button 
                 variant="ghost" 
                 onClick={() => navigate('/admin-dashboard')}
-                className="text-gray-600 hover:text-workbridge-primary"
+                className="text-gray-600 hover:text-workbridge-primary hidden sm:flex"
               >
                 <Shield className="h-4 w-4 mr-2" />
                 Admin
               </Button>
-              <Button variant="outline" onClick={() => navigate('/login')}>
+              <Button variant="outline" onClick={() => navigate('/login')} className="text-sm">
                 Sign In
               </Button>
-              <Button onClick={() => navigate('/register')} className="bg-workbridge-primary">
+              <Button onClick={() => navigate('/register')} className="bg-workbridge-primary text-sm">
                 Get Started
               </Button>
             </div>
@@ -83,33 +90,33 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <Badge className="mb-6 bg-workbridge-primary/10 text-workbridge-primary">
               🚀 Now Connecting 10,000+ Professionals
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Bridge Your Career to 
               <span className="text-workbridge-primary"> Success</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
               Connect with top employers and discover opportunities that match your skills, 
               ambitions, and career goals. Your next chapter starts here.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-workbridge-primary hover:bg-workbridge-primary/90 text-lg px-8 py-4"
+                className="bg-workbridge-primary hover:bg-workbridge-primary/90 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
                 Find Your Dream Job
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-lg px-8 py-4"
+                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
                 Post a Job
@@ -120,18 +127,18 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white/50">
+      <section className="py-12 md:py-16 bg-white/50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-workbridge-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-8 w-8 text-workbridge-primary" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-workbridge-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-workbridge-primary" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
-                  <p className="text-gray-600">{stat.label}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
+                  <p className="text-gray-600 text-sm md:text-base">{stat.label}</p>
                 </div>
               );
             })}
@@ -140,15 +147,15 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose WorkBridge?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose WorkBridge?</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               We've built the most advanced job matching platform to connect talent with opportunity
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -157,7 +164,7 @@ const Index = () => {
                     <div className="w-12 h-12 bg-workbridge-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon className="h-6 w-6 text-workbridge-primary" />
                     </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600">{feature.description}</p>
@@ -170,13 +177,13 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-r from-workbridge-primary/5 to-workbridge-secondary/5">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-workbridge-primary/5 to-workbridge-secondary/5">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
-            <p className="text-xl text-gray-600">Hear from professionals who found their perfect match</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
+            <p className="text-lg md:text-xl text-gray-600">Hear from professionals who found their perfect match</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardHeader>
@@ -185,7 +192,7 @@ const Index = () => {
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <CardDescription className="text-lg italic">
+                  <CardDescription className="text-base md:text-lg italic">
                     "{testimonial.content}"
                   </CardDescription>
                 </CardHeader>
@@ -205,22 +212,22 @@ const Index = () => {
       <AdminContact />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-workbridge-primary to-workbridge-secondary">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-workbridge-primary to-workbridge-secondary">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Career?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Career?</h2>
+            <p className="text-lg md:text-xl text-white/90 mb-8">
               Join thousands of professionals who have already found their perfect job match
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 variant="secondary"
-                className="text-lg px-8 py-4"
+                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
                 Start Your Journey
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </div>
           </div>
@@ -228,20 +235,66 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Briefcase className="h-6 w-6" />
-              <span className="text-xl font-bold">WorkBridge</span>
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Briefcase className="h-6 w-6" />
+                <span className="text-xl font-bold">WorkBridge</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Connecting talent with opportunity through innovative job matching technology.
+              </p>
             </div>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Support</a>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Company</h3>
+              <div className="space-y-2 text-sm">
+                <button onClick={() => navigate('/contact-us')} className="block text-gray-400 hover:text-white transition-colors">
+                  Contact Us
+                </button>
+                <button onClick={() => navigate('/privacy-policy')} className="block text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </button>
+                <button onClick={() => navigate('/terms-of-service')} className="block text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </button>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Job Seekers</h3>
+              <div className="space-y-2 text-sm">
+                <button onClick={() => navigate('/jobs')} className="block text-gray-400 hover:text-white transition-colors">
+                  Browse Jobs
+                </button>
+                <button onClick={() => navigate('/register')} className="block text-gray-400 hover:text-white transition-colors">
+                  Create Account
+                </button>
+                <button onClick={() => navigate('/login')} className="block text-gray-400 hover:text-white transition-colors">
+                  Sign In
+                </button>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Employers</h3>
+              <div className="space-y-2 text-sm">
+                <button onClick={() => navigate('/post-job')} className="block text-gray-400 hover:text-white transition-colors">
+                  Post a Job
+                </button>
+                <button onClick={() => navigate('/register')} className="block text-gray-400 hover:text-white transition-colors">
+                  Employer Sign Up
+                </button>
+                <button onClick={() => navigate('/login')} className="block text-gray-400 hover:text-white transition-colors">
+                  Employer Login
+                </button>
+              </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
             <p>&copy; 2024 WorkBridge. All rights reserved.</p>
           </div>
         </div>
