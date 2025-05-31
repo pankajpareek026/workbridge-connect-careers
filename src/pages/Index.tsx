@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -63,7 +62,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+              <h1 className="text-2xl font-bold text-workbridge-primary">Jai Jor Nath</h1>
             </div>
             <div className="flex items-center space-x-2 md:space-x-4">
               <LanguageSwitcher />
@@ -245,7 +244,7 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Briefcase className="h-6 w-6" />
-                <span className="text-xl font-bold">WorkBridge</span>
+                <span className="text-xl font-bold">Jai Jor Nath</span>
               </div>
               <p className="text-gray-400 text-sm">
                 {t('footer.description')}

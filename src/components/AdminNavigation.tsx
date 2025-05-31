@@ -92,7 +92,7 @@ const AdminNavigation = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge Admin</h1>
+            <h1 className="text-2xl font-bold text-workbridge-primary">Jai Jor Nath Admin</h1>
           </div>
           
           {/* Desktop Navigation */}

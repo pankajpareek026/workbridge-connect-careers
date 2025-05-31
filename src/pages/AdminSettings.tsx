@@ -26,7 +26,7 @@ import { useToast } from '@/hooks/use-toast';
 const AdminSettings = () => {
   const { toast } = useToast();
   const [settings, setSettings] = useState({
-    siteName: 'WorkBridge',
+    siteName: 'Jai Jor Nath',
     siteDescription: 'Connect talent with opportunities',
     maintenanceMode: false,
     userRegistration: true,
@@ -35,9 +35,9 @@ const AdminSettings = () => {
     autoApproveCompanies: false,
     maxJobsPerCompany: 50,
     jobExpirationDays: 30,
-    smtpServer: 'smtp.workbridge.com',
+    smtpServer: 'smtp.jaijonath.com',
     smtpPort: 587,
-    smtpUsername: 'notifications@workbridge.com',
+    smtpUsername: 'notifications@jaijonath.com',
     notifyNewUsers: true,
     notifyNewJobs: true,
     notifyNewApplications: true,

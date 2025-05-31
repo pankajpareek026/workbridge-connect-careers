@@ -88,7 +88,7 @@ const Navigation = ({ userType = 'job-seeker', userName }: NavigationProps) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Briefcase className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+            <h1 className="text-2xl font-bold text-workbridge-primary">Jai Jor Nath</h1>
           </div>
           
           {/* Desktop Navigation */}
