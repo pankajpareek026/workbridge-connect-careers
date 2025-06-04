@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -48,7 +47,7 @@ const Navigation = ({ userType = 'job-seeker', userName }: NavigationProps) => {
 
   const NavContent = () => (
     <div className="flex flex-col space-y-4 p-4">
-      <div className="text-lg font-semibold text-workbridge-primary mb-4">
+      <div className="text-lg font-semibold text-blue-600 mb-4">
         Welcome, {userName || 'User'}!
       </div>
       {navItems.map((item) => {
@@ -58,7 +57,7 @@ const Navigation = ({ userType = 'job-seeker', userName }: NavigationProps) => {
           <Button
             key={item.path}
             variant={isActive ? "default" : "ghost"}
-            className={`justify-start w-full ${isActive ? 'bg-workbridge-primary text-white' : ''}`}
+            className={`justify-start w-full ${isActive ? 'bg-blue-600 text-white' : ''}`}
             onClick={() => {
               navigate(item.path);
               setIsOpen(false);
@@ -87,8 +86,8 @@ const Navigation = ({ userType = 'job-seeker', userName }: NavigationProps) => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Briefcase className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">Jai Jor Nath</h1>
+            <Briefcase className="h-8 w-8 text-blue-600" />
+            <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
           </div>
           
           {/* Desktop Navigation */}
@@ -100,7 +99,7 @@ const Navigation = ({ userType = 'job-seeker', userName }: NavigationProps) => {
                 <Button
                   key={item.path}
                   variant={isActive ? "default" : "ghost"}
-                  className={isActive ? 'bg-workbridge-primary text-white' : ''}
+                  className={isActive ? 'bg-blue-600 text-white' : ''}
                   onClick={() => navigate(item.path)}
                 >
                   <Icon className="h-4 w-4 mr-2" />

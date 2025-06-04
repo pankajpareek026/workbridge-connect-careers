@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -90,8 +89,8 @@ const JobBrowser = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+              <Briefcase className="h-8 w-8 text-blue-600" />
+              <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" onClick={() => navigate('/job-seeker-dashboard')}>
@@ -146,7 +145,7 @@ const JobBrowser = () => {
                   <SelectItem value="Remote">Remote</SelectItem>
                 </SelectContent>
               </Select>
-              <Button className="bg-workbridge-primary hover:bg-workbridge-primary/90">
+              <Button className="bg-blue-600 hover:bg-blue-700">
                 <Filter className="h-4 w-4 mr-2" />
                 Search
               </Button>
@@ -164,17 +163,17 @@ const JobBrowser = () => {
         {/* Job Listings */}
         <div className="space-y-6">
           {filteredJobs.map((job) => (
-            <Card key={job.id} className={`hover:shadow-lg transition-shadow cursor-pointer ${job.featured ? 'ring-2 ring-workbridge-primary/20' : ''}`}>
+            <Card key={job.id} className={`hover:shadow-lg transition-shadow cursor-pointer ${job.featured ? 'ring-2 ring-blue-600/20' : ''}`}>
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
                       <CardTitle className="text-xl text-gray-900">{job.title}</CardTitle>
                       {job.featured && (
-                        <Badge className="bg-workbridge-primary text-white">Featured</Badge>
+                        <Badge className="bg-blue-600 text-white">Featured</Badge>
                       )}
                     </div>
-                    <p className="text-lg font-medium text-workbridge-primary mb-2">{job.company}</p>
+                    <p className="text-lg font-medium text-blue-600 mb-2">{job.company}</p>
                     <div className="flex items-center space-x-4 text-gray-600 mb-3">
                       <div className="flex items-center space-x-1">
                         <MapPin className="h-4 w-4" />
@@ -197,9 +196,9 @@ const JobBrowser = () => {
                       e.stopPropagation();
                       toggleSaveJob(job.id);
                     }}
-                    className="text-gray-400 hover:text-workbridge-primary"
+                    className="text-gray-400 hover:text-blue-600"
                   >
-                    <Bookmark className={`h-5 w-5 ${savedJobs.includes(job.id) ? 'fill-current text-workbridge-primary' : ''}`} />
+                    <Bookmark className={`h-5 w-5 ${savedJobs.includes(job.id) ? 'fill-current text-blue-600' : ''}`} />
                   </Button>
                 </div>
               </CardHeader>
@@ -221,7 +220,7 @@ const JobBrowser = () => {
                     <Button variant="outline" size="sm">
                       Learn More
                     </Button>
-                    <Button size="sm" className="bg-workbridge-primary hover:bg-workbridge-primary/90">
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
                       Apply Now
                     </Button>
                   </div>

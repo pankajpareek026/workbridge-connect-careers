@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -36,7 +35,7 @@ const AdminNavigation = () => {
 
   const NavContent = () => (
     <div className="flex flex-col space-y-4 p-4">
-      <div className="text-lg font-semibold text-workbridge-primary mb-4 flex items-center space-x-2">
+      <div className="text-lg font-semibold text-blue-600 mb-4 flex items-center space-x-2">
         <Shield className="h-5 w-5" />
         <span>Admin Panel</span>
       </div>
@@ -47,7 +46,7 @@ const AdminNavigation = () => {
           <Button
             key={item.path}
             variant={isActive ? "default" : "ghost"}
-            className={`justify-start w-full ${isActive ? 'bg-workbridge-primary text-white' : ''}`}
+            className={`justify-start w-full ${isActive ? 'bg-blue-600 text-white' : ''}`}
             onClick={() => {
               navigate(item.path);
               setIsOpen(false);
@@ -91,8 +90,8 @@ const AdminNavigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">Jai Jor Nath Admin</h1>
+            <Shield className="h-8 w-8 text-blue-600" />
+            <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath Admin</h1>
           </div>
           
           {/* Desktop Navigation */}
@@ -105,7 +104,7 @@ const AdminNavigation = () => {
                   key={item.path}
                   variant={isActive ? "default" : "ghost"}
                   size="sm"
-                  className={isActive ? 'bg-workbridge-primary text-white' : ''}
+                  className={isActive ? 'bg-blue-600 text-white' : ''}
                   onClick={() => navigate(item.path)}
                 >
                   <Icon className="h-4 w-4 mr-2" />

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,8 +37,8 @@ const EmployerDashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+              <Briefcase className="h-8 w-8 text-blue-600" />
+              <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" onClick={() => navigate('/company-profile')}>
@@ -66,8 +65,8 @@ const EmployerDashboard = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-workbridge-primary/10 rounded-lg">
-                  <Briefcase className="h-5 w-5 text-workbridge-primary" />
+                <div className="p-2 bg-blue-600/10 rounded-lg">
+                  <Briefcase className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-gray-900">3</p>
@@ -80,8 +79,8 @@ const EmployerDashboard = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-workbridge-secondary/10 rounded-lg">
-                  <Users className="h-5 w-5 text-workbridge-secondary" />
+                <div className="p-2 bg-orange-500/10 rounded-lg">
+                  <Users className="h-5 w-5 text-orange-500" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-gray-900">73</p>
@@ -94,8 +93,8 @@ const EmployerDashboard = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-workbridge-accent/10 rounded-lg">
-                  <Eye className="h-5 w-5 text-workbridge-accent" />
+                <div className="p-2 bg-green-600/10 rounded-lg">
+                  <Eye className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-gray-900">548</p>
@@ -108,8 +107,8 @@ const EmployerDashboard = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-workbridge-success/10 rounded-lg">
-                  <FileText className="h-5 w-5 text-workbridge-success" />
+                <div className="p-2 bg-purple-600/10 rounded-lg">
+                  <FileText className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-gray-900">12</p>
@@ -124,7 +123,7 @@ const EmployerDashboard = () => {
         <div className="mb-8">
           <Button 
             onClick={() => navigate('/post-job')}
-            className="bg-workbridge-primary hover:bg-workbridge-primary/90"
+            className="bg-blue-600 hover:bg-blue-700"
             size="lg"
           >
             <Plus className="h-5 w-5 mr-2" />
