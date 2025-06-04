@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield, Phone, Mail, MapPin, Search, FileText, UserCheck } from 'lucide-react';
+import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield, Phone, Mail, MapPin, Search, FileText, UserCheck, Upload } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AdminContact from '@/components/AdminContact';
@@ -69,62 +69,109 @@ const Index = () => {
                 Jai Jor Nath
               </h1>
             </div>
-            <div className="flex items-center space-x-6">
+            
+            {/* Navigation Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Button variant="ghost" className="text-gray-700 hover:text-blue-600">
+                FEMALE JOBS
+              </Button>
+              <Button variant="ghost" className="text-gray-700 hover:text-blue-600">
+                URGENT JOBS
+              </Button>
+              <Button variant="ghost" className="text-gray-700 hover:text-blue-600">
+                FRESHERS JOBS
+              </Button>
+              <Button variant="ghost" className="text-gray-700 hover:text-blue-600">
+                ALL JOBS
+              </Button>
+              <Button variant="ghost" className="text-gray-700 hover:text-blue-600">
+                CAREER GUIDE
+              </Button>
+            </div>
+            
+            <div className="flex items-center space-x-4">
               <LanguageSwitcher />
-              <Button 
-                variant="ghost" 
-                onClick={() => navigate('/contact-us')}
-                className="text-gray-600 hover:text-blue-600"
-              >
-                {t('nav.contact')}
+              <Button variant="ghost" onClick={() => navigate('/login')} className="text-blue-600 hover:text-blue-700">
+                <User className="h-4 w-4 mr-2" />
+                Login
               </Button>
-              <Button 
-                variant="ghost" 
-                onClick={() => navigate('/admin-dashboard')}
-                className="text-gray-600 hover:text-blue-600 hidden sm:flex"
-              >
-                <Shield className="h-4 w-4 mr-2" />
-                {t('nav.admin')}
-              </Button>
-              <Button variant="outline" onClick={() => navigate('/login')} className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                {t('nav.signIn')}
-              </Button>
-              <Button onClick={() => navigate('/register')} className="bg-blue-600 hover:bg-blue-700 text-white">
-                {t('nav.getStarted')}
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6">
+                Hire Staff
               </Button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              {t('hero.title')}
-              <span className="text-blue-600"> {t('hero.titleHighlight')}</span>
-              {language === 'hi' && <span> {t('hero.titleEnd')}</span>}
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-              {t('hero.description')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      {/* Hero Section with Blue Gradient */}
+      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-20 min-h-[500px] flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Main Search Card */}
+            <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0 p-8">
+              <div className="text-center mb-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-blue-700 mb-4">
+                  Find Jobs In Your City
+                </h1>
+              </div>
+              
+              {/* Search Form */}
+              <div className="grid md:grid-cols-12 gap-4 items-end">
+                <div className="md:col-span-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Which Job?
+                  </label>
+                  <Input 
+                    placeholder="Designation, Job Title or any keyword"
+                    className="h-12 text-base border-gray-300"
+                  />
+                </div>
+                
+                <div className="md:col-span-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Where?
+                  </label>
+                  <Input 
+                    placeholder="Area, City or Pincode"
+                    className="h-12 text-base border-gray-300"
+                  />
+                </div>
+                
+                <div className="md:col-span-2">
+                  <Button 
+                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base"
+                    onClick={() => navigate('/jobs')}
+                  >
+                    FIND JOBS
+                  </Button>
+                </div>
+                
+                <div className="md:col-span-2">
+                  <Button 
+                    className="w-full h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-base"
+                    onClick={() => navigate('/register')}
+                  >
+                    <Upload className="h-4 w-4 mr-2" />
+                    UPLOAD RESUME
+                  </Button>
+                  <p className="text-xs text-red-500 mt-1 text-center">
+                    Allowed: pdf, doc or docx. Max: 2MB
+                  </p>
+                </div>
+              </div>
+            </Card>
+            
+            {/* Quick Search Icon */}
+            <div className="fixed bottom-6 right-6">
               <Button 
-                size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-4"
-                onClick={() => navigate('/register')}
+                size="lg"
+                className="w-16 h-16 rounded-full bg-white text-blue-600 hover:bg-gray-50 shadow-lg border border-gray-200"
+                onClick={() => navigate('/jobs')}
               >
-                {t('hero.findJob')}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50"
-                onClick={() => navigate('/register')}
-              >
-                {t('hero.postJob')}
+                <div className="text-center">
+                  <Search className="h-6 w-6 mx-auto mb-1" />
+                  <span className="text-xs font-medium">FIND JOBS</span>
+                </div>
               </Button>
             </div>
           </div>
