@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield, Phone, Mail, MapPin, Search, FileText, UserCheck, Upload } from 'lucide-react';
+import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield, Phone, Mail, MapPin, Search, FileText, UserCheck, Upload, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AdminContact from '@/components/AdminContact';
