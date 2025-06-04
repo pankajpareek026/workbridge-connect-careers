@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield, Phone, Mail, MapPin } from 'lucide-react';
+import { Briefcase, Users, Building, TrendingUp, Star, CheckCircle, ArrowRight, Shield, Phone, Mail, MapPin, Search, FileText, UserCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AdminContact from '@/components/AdminContact';
@@ -23,17 +24,17 @@ const Index = () => {
     {
       title: t('features.smartMatching'),
       description: t('features.smartMatchingDesc'),
-      icon: TrendingUp
+      icon: Search
     },
     {
       title: t('features.verifiedCompanies'),
       description: t('features.verifiedCompaniesDesc'),
-      icon: CheckCircle
+      icon: UserCheck
     },
     {
       title: t('features.realTimeApps'),
       description: t('features.realTimeAppsDesc'),
-      icon: Briefcase
+      icon: FileText
     }
   ];
 
@@ -57,23 +58,23 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <header className="bg-white shadow-lg border-b sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Briefcase className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-blue-600">
                 Jai Jor Nath
               </h1>
             </div>
-            <div className="flex items-center space-x-2 md:space-x-4">
+            <div className="flex items-center space-x-6">
               <LanguageSwitcher />
               <Button 
                 variant="ghost" 
                 onClick={() => navigate('/contact-us')}
-                className="text-gray-600 hover:text-blue-600 text-sm"
+                className="text-gray-600 hover:text-blue-600"
               >
                 {t('nav.contact')}
               </Button>
@@ -85,10 +86,10 @@ const Index = () => {
                 <Shield className="h-4 w-4 mr-2" />
                 {t('nav.admin')}
               </Button>
-              <Button variant="outline" onClick={() => navigate('/login')} className="text-sm border-blue-200 hover:bg-blue-50">
+              <Button variant="outline" onClick={() => navigate('/login')} className="border-blue-600 text-blue-600 hover:bg-blue-50">
                 {t('nav.signIn')}
               </Button>
-              <Button onClick={() => navigate('/register')} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm">
+              <Button onClick={() => navigate('/register')} className="bg-blue-600 hover:bg-blue-700 text-white">
                 {t('nav.getStarted')}
               </Button>
             </div>
@@ -97,25 +98,21 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
-        <div className="container mx-auto px-4 text-center relative">
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 border-blue-200">
-              {t('hero.tagline')}
-            </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               {t('hero.title')}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> {t('hero.titleHighlight')}</span>
+              <span className="text-blue-600"> {t('hero.titleHighlight')}</span>
               {language === 'hi' && <span> {t('hero.titleEnd')}</span>}
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
               {t('hero.description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-base md:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-4"
                 onClick={() => navigate('/register')}
               >
                 {t('hero.findJob')}
@@ -124,7 +121,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-base md:text-lg px-8 py-4 rounded-full border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300"
+                className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50"
                 onClick={() => navigate('/register')}
               >
                 {t('hero.postJob')}
@@ -135,14 +132,14 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div key={index} className="group">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Icon className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
@@ -155,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('features.title')}</h2>
@@ -163,18 +160,18 @@ const Index = () => {
               {t('features.subtitle')}
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white hover:scale-105">
-                  <CardHeader className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Card key={index} className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow bg-white">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="h-8 w-8 text-blue-600" />
                     </div>
                     <CardTitle className="text-xl text-gray-900">{feature.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="text-center">
+                  <CardContent className="text-center pt-0">
                     <p className="text-gray-600">{feature.description}</p>
                   </CardContent>
                 </Card>
@@ -185,7 +182,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
@@ -196,9 +193,9 @@ const Index = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-2 border-blue-100 hover:border-blue-200 transition-colors">
+              <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Phone className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone Support</h3>
@@ -216,14 +213,14 @@ const Index = () => {
                     >
                       +91 91576 68193
                     </a>
-                    <span className="text-xs text-purple-600 font-medium">(Priority Line)</span>
+                    <span className="text-xs text-blue-600 font-medium">(Priority Line)</span>
                   </div>
                 </CardContent>
               </Card>
               
-              <Card className="border-2 border-blue-100 hover:border-blue-200 transition-colors">
+              <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Mail className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Support</h3>
@@ -237,9 +234,9 @@ const Index = () => {
                 </CardContent>
               </Card>
               
-              <Card className="border-2 border-blue-100 hover:border-blue-200 transition-colors">
+              <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <MapPin className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Office Location</h3>
@@ -257,7 +254,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('testimonials.title')}</h2>
@@ -265,7 +262,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-xl bg-white">
+              <Card key={index} className="bg-white border border-gray-200 shadow-sm">
                 <CardHeader>
                   <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -289,7 +286,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6">{t('cta.title')}</h2>
@@ -300,7 +297,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="secondary"
-                className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-full shadow-lg"
+                className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100"
                 onClick={() => navigate('/register')}
               >
                 {t('cta.startJourney')}
@@ -317,7 +314,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                   <Briefcase className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-xl font-bold">Jai Jor Nath</span>
