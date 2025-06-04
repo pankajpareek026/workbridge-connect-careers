@@ -22,42 +22,51 @@ const AdminContact = () => {
             <CardContent className="p-8">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-workbridge-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-workbridge-primary/20 transition-colors">
-                    <Phone className="h-8 w-8 text-workbridge-primary" />
+                  <div className="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600/20 transition-colors">
+                    <Phone className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('adminContact.phoneSupport')}</h3>
                   <p className="text-gray-600 mb-3">{t('adminContact.phoneDesc')}</p>
-                  <a 
-                    href="tel:+1234567890" 
-                    className="text-workbridge-primary font-medium hover:underline text-lg"
-                  >
-                    +1 (234) 567-8900
-                  </a>
+                  <div className="space-y-2">
+                    <a 
+                      href="tel:+919227049220" 
+                      className="block text-blue-600 font-medium hover:underline"
+                    >
+                      +91 92270 49220
+                    </a>
+                    <a 
+                      href="tel:+919157668193" 
+                      className="block text-blue-600 font-medium hover:underline"
+                    >
+                      +91 91576 68193
+                    </a>
+                    <span className="text-xs text-purple-600 font-medium">(Priority Line)</span>
+                  </div>
                 </div>
                 
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-workbridge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-workbridge-secondary/20 transition-colors">
-                    <Mail className="h-8 w-8 text-workbridge-secondary" />
+                  <div className="w-16 h-16 bg-purple-600/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-600/20 transition-colors">
+                    <Mail className="h-8 w-8 text-purple-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('adminContact.emailSupport')}</h3>
                   <p className="text-gray-600 mb-3">{t('adminContact.emailDesc')}</p>
                   <a 
-                    href="mailto:admin@workbridge.com" 
-                    className="text-workbridge-secondary font-medium hover:underline"
+                    href="mailto:admin@jaijonath.com" 
+                    className="text-purple-600 font-medium hover:underline"
                   >
-                    admin@workbridge.com
+                    admin@jaijonath.com
                   </a>
                 </div>
                 
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-workbridge-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-workbridge-accent/20 transition-colors">
-                    <MapPin className="h-8 w-8 text-workbridge-accent" />
+                  <div className="w-16 h-16 bg-green-600/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-600/20 transition-colors">
+                    <MapPin className="h-8 w-8 text-green-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('adminContact.officeLocation')}</h3>
                   <p className="text-gray-600 mb-3">{t('adminContact.officeDesc')}</p>
-                  <p className="text-workbridge-accent font-medium">
-                    123 Business Ave<br />
-                    Suite 100, City 12345
+                  <p className="text-green-600 font-medium">
+                    Business Hub<br />
+                    Professional Center, India
                   </p>
                 </div>
               </div>
