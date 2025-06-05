@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,16 +16,21 @@ const Index = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    const hasPopupBeenShown = localStorage.getItem('jobPopupShown');
-    if (!hasPopupBeenShown) {
-      setIsPopupOpen(true);
-      localStorage.setItem('jobPopupShown', 'true');
-    }
+    // Show popup after a small delay to ensure proper rendering
+    const timer = setTimeout(() => {
+      const hasPopupBeenShown = localStorage.getItem('jobPopupShown');
+      if (!hasPopupBeenShown) {
+        setIsPopupOpen(true);
+        localStorage.setItem('jobPopupShown', 'true');
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handlePopupClick = () => {
     setIsPopupOpen(false);
-    navigate('/jobs'); // Changed from '/job-browser' to '/jobs'
+    navigate('/jobs');
   };
 
   const stats = [
@@ -120,76 +124,78 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section with Blue Gradient */}
+      {/* Hero Section with Blue Gradient - Fixed Layout */}
       <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-12 sm:py-20 min-h-[400px] sm:min-h-[500px] flex items-center">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* Main Search Card */}
-            <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0 p-4 sm:p-8">
+            <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0 p-6 sm:p-8">
               <div className="text-center mb-6 sm:mb-8">
                 <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-700 mb-4">
                   Find Jobs In Your City
                 </h1>
               </div>
               
-              {/* Search Form */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
-                <div className="lg:col-span-4">
+              {/* Search Form - Fixed Layout */}
+              <div className="flex flex-col lg:flex-row gap-4 items-end">
+                {/* Job Input */}
+                <div className="flex-1 min-w-0">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Which Job?
                   </label>
                   <Input 
                     placeholder="Designation, Job Title or any keyword"
-                    className="h-10 sm:h-12 text-sm sm:text-base border-gray-300"
+                    className="h-12 text-base border-gray-300 w-full"
                   />
                 </div>
                 
-                <div className="lg:col-span-4">
+                {/* Location Input */}
+                <div className="flex-1 min-w-0">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Where?
                   </label>
                   <Input 
                     placeholder="Area, City or Pincode"
-                    className="h-10 sm:h-12 text-sm sm:text-base border-gray-300"
+                    className="h-12 text-base border-gray-300 w-full"
                   />
                 </div>
                 
-                <div className="lg:col-span-2">
+                {/* Find Jobs Button */}
+                <div className="w-full lg:w-auto">
                   <Button 
-                    className="w-full h-10 sm:h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm sm:text-base"
+                    className="w-full lg:w-auto h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base px-8"
                     onClick={() => navigate('/jobs')}
                   >
                     FIND JOBS
                   </Button>
                 </div>
                 
-                <div className="lg:col-span-2">
+                {/* Upload Resume Button */}
+                <div className="w-full lg:w-auto">
                   <Button 
-                    className="w-full h-10 sm:h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-sm sm:text-base"
+                    className="w-full lg:w-auto h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-base px-6"
                     onClick={() => navigate('/register')}
                   >
-                    <Upload className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                    <span className="hidden sm:inline">UPLOAD RESUME</span>
-                    <span className="sm:hidden">UPLOAD</span>
+                    <Upload className="h-4 w-4 mr-2" />
+                    UPLOAD RESUME
                   </Button>
-                  <p className="text-xs text-red-500 mt-1 text-center">
-                    <span className="hidden sm:inline">Allowed: pdf, doc or docx. Max: 2MB</span>
-                    <span className="sm:hidden">PDF/DOC, Max: 2MB</span>
+                  <p className="text-xs text-red-500 mt-1 text-center lg:text-left">
+                    Allowed: pdf, doc or docx. Max: 2MB
                   </p>
                 </div>
               </div>
             </Card>
             
             {/* Quick Search Icon */}
-            <div className="fixed bottom-6 right-6">
+            <div className="fixed bottom-6 right-6 z-40">
               <Button 
                 size="lg"
-                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white text-blue-600 hover:bg-gray-50 shadow-lg border border-gray-200"
+                className="w-16 h-16 rounded-full bg-white text-blue-600 hover:bg-gray-50 shadow-lg border border-gray-200"
                 onClick={() => navigate('/jobs')}
               >
                 <div className="text-center">
-                  <Search className="h-4 w-4 sm:h-6 sm:w-6 mx-auto mb-1" />
-                  <span className="text-xs font-medium hidden sm:block">FIND JOBS</span>
+                  <Search className="h-6 w-6 mx-auto mb-1" />
+                  <span className="text-xs font-medium">JOBS</span>
                 </div>
               </Button>
             </div>
