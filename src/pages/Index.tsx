@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,7 +9,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import AdminContact from '@/components/AdminContact';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import JobPopup from '@/components/JobPopup';
-import React, { useState, useEffect } from 'react';
 
 const Index = () => {
   const navigate = useNavigate();
