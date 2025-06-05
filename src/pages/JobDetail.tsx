@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -108,8 +107,8 @@ As a Senior Frontend Developer, you will work closely with our design and backen
                 Back to Jobs
               </Button>
               <div className="flex items-center space-x-2">
-                <Briefcase className="h-8 w-8 text-workbridge-primary" />
-                <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+                <Briefcase className="h-8 w-8 text-blue-600" />
+                <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
               </div>
             </div>
             <div className="flex items-center space-x-2">
@@ -138,10 +137,10 @@ As a Senior Frontend Developer, you will work closely with our design and backen
                     <div className="flex items-center space-x-2 mb-2">
                       <CardTitle className="text-2xl text-gray-900">{job.title}</CardTitle>
                       {job.featured && (
-                        <Badge className="bg-workbridge-primary text-white">Featured</Badge>
+                        <Badge className="bg-blue-600 text-white">Featured</Badge>
                       )}
                     </div>
-                    <p className="text-xl font-medium text-workbridge-primary mb-4">{job.company}</p>
+                    <p className="text-xl font-medium text-blue-600 mb-4">{job.company}</p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600">
                       <div className="flex items-center space-x-2">
                         <MapPin className="h-4 w-4" />
@@ -186,7 +185,7 @@ As a Senior Frontend Developer, you will work closely with our design and backen
                 <ul className="space-y-2">
                   {job.responsibilities.map((responsibility, index) => (
                     <li key={index} className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-workbridge-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-700">{responsibility}</span>
                     </li>
                   ))}
@@ -203,7 +202,7 @@ As a Senior Frontend Developer, you will work closely with our design and backen
                 <ul className="space-y-2">
                   {job.requirements.map((requirement, index) => (
                     <li key={index} className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-workbridge-secondary rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-700">{requirement}</span>
                     </li>
                   ))}
@@ -220,7 +219,7 @@ As a Senior Frontend Developer, you will work closely with our design and backen
                 <ul className="space-y-2">
                   {job.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-workbridge-accent rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-700">{benefit}</span>
                     </li>
                   ))}
@@ -237,7 +236,7 @@ As a Senior Frontend Developer, you will work closely with our design and backen
                 <Button
                   onClick={handleApply}
                   disabled={isApplying}
-                  className="w-full bg-workbridge-primary hover:bg-workbridge-primary/90 text-lg py-6"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6"
                 >
                   {isApplying ? "Submitting..." : "Apply for this Job"}
                 </Button>

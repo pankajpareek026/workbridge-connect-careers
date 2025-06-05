@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -37,8 +36,8 @@ const JobSeekerDashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+              <Briefcase className="h-8 w-8 text-blue-600" />
+              <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" onClick={() => navigate('/profile')}>
@@ -65,7 +64,7 @@ const JobSeekerDashboard = () => {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => navigate('/jobs')}>
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-2">
-                <Search className="h-5 w-5 text-workbridge-primary" />
+                <Search className="h-5 w-5 text-blue-600" />
                 <CardTitle className="text-lg">Browse Jobs</CardTitle>
               </div>
             </CardHeader>
@@ -77,7 +76,7 @@ const JobSeekerDashboard = () => {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => navigate('/applications')}>
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-2">
-                <FileText className="h-5 w-5 text-workbridge-secondary" />
+                <FileText className="h-5 w-5 text-orange-500" />
                 <CardTitle className="text-lg">My Applications</CardTitle>
               </div>
             </CardHeader>
@@ -89,7 +88,7 @@ const JobSeekerDashboard = () => {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => navigate('/saved-jobs')}>
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-2">
-                <Bookmark className="h-5 w-5 text-workbridge-accent" />
+                <Bookmark className="h-5 w-5 text-green-600" />
                 <CardTitle className="text-lg">Saved Jobs</CardTitle>
               </div>
             </CardHeader>
