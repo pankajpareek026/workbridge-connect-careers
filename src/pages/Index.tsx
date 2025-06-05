@@ -1,8 +1,5 @@
 
-<<<<<<< HEAD
-=======
 import React from 'react';
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -81,19 +78,13 @@ const Index = () => {
       <header className="bg-white shadow-sm border-b sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-<<<<<<< HEAD
-            <div className="flex items-center space-x-2">
-              <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
-=======
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Briefcase className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold text-blue-600">
-                Jai Jor Nath
+                Jay shree joranath jobs
               </h1>
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
             </div>
             
             {/* Navigation Menu */}
@@ -117,74 +108,18 @@ const Index = () => {
             
             <div className="flex items-center space-x-4">
               <LanguageSwitcher />
-<<<<<<< HEAD
-              <Button
-                variant="ghost"
-                onClick={() => navigate('/contact-us')}
-                className="text-gray-600 hover:text-jay-shree-joranath-jobs-primary text-sm"
-              >
-                {t('nav.contact')}
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => navigate('/admin-dashboard')}
-                className="text-gray-600 hover:text-jay-shree-joranath-jobs-primary hidden sm:flex"
-              >
-                <Shield className="h-4 w-4 mr-2" />
-                {t('nav.admin')}
-              </Button>
-              <Button variant="outline" onClick={() => navigate('/login')} className="text-sm">
-                {t('nav.signIn')}
-              </Button>
-              <Button onClick={() => navigate('/register')} className="bg-jay-shree-joranath-jobs-primary text-sm">
-                {t('nav.getStarted')}
-=======
               <Button variant="ghost" onClick={() => navigate('/login')} className="text-blue-600 hover:text-blue-700">
                 <User className="h-4 w-4 mr-2" />
                 Login
               </Button>
               <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6">
                 Hire Staff
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
               </Button>
             </div>
           </div>
         </div>
       </header>
 
-<<<<<<< HEAD
-      {/* Hero Section */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-jay-shree-joranath-jobs-primary/10 text-jay-shree-joranath-jobs-primary">
-              {t('hero.tagline')}
-            </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              {t('hero.title')}
-              <span className="text-jay-shree-joranath-jobs-primary"> {t('hero.titleHighlight')}</span>
-              {language === 'hi' && <span> {t('hero.titleEnd')}</span>}
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-              {t('hero.description')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-jay-shree-joranath-jobs-primary hover:bg-jay-shree-joranath-jobs-primary/90 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
-                onClick={() => navigate('/register')}
-              >
-                {t('hero.findJob')}
-                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
-                onClick={() => navigate('/register')}
-              >
-                {t('hero.postJob')}
-=======
       {/* Hero Section with Blue Gradient */}
       <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-20 min-h-[500px] flex items-center">
         <div className="container mx-auto px-4">
@@ -254,7 +189,6 @@ const Index = () => {
                   <Search className="h-6 w-6 mx-auto mb-1" />
                   <span className="text-xs font-medium">FIND JOBS</span>
                 </div>
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
               </Button>
             </div>
           </div>
@@ -268,15 +202,9 @@ const Index = () => {
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-<<<<<<< HEAD
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-jay-shree-joranath-jobs-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-jay-shree-joranath-jobs-primary" />
-=======
                 <div key={index} className="group">
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Icon className="h-8 w-8 text-blue-600" />
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
                   </div>
                   <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
                   <p className="text-gray-600">{stat.label}</p>
@@ -300,17 +228,10 @@ const Index = () => {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-<<<<<<< HEAD
-                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white/80 backdrop-blur-sm">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-jay-shree-joranath-jobs-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-jay-shree-joranath-jobs-primary" />
-=======
                 <Card key={index} className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow bg-white">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="h-8 w-8 text-blue-600" />
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
                     </div>
                     <CardTitle className="text-xl text-gray-900">{feature.title}</CardTitle>
                   </CardHeader>
@@ -324,13 +245,8 @@ const Index = () => {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* Testimonials Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-r from-jay-shree-joranath-jobs-primary/5 to-jay-shree-joranath-jobs-secondary/5">
-=======
       {/* Contact Section */}
       <section className="py-20 bg-gray-50">
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
@@ -434,11 +350,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-<<<<<<< HEAD
-      <section className="py-12 md:py-20 bg-gradient-to-r from-jay-shree-joranath-jobs-primary to-jay-shree-joranath-jobs-secondary">
-=======
       <section className="py-20 bg-blue-600">
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6">{t('cta.title')}</h2>
@@ -465,17 +377,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-<<<<<<< HEAD
-              <div className="flex items-center space-x-2 mb-4">
-                <Briefcase className="h-6 w-6" />
-                <span className="text-xl font-bold">Jay shree joranath jobs</span>
-=======
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                   <Briefcase className="h-5 w-5 text-white" />
                 </div>
-                <span className="text-xl font-bold">Jai Jor Nath</span>
->>>>>>> 17ff638732122b9d481907c966964a25ce93544f
+                <span className="text-xl font-bold">Jay shree joranath jobs</span>
               </div>
               <p className="text-gray-400 text-sm">
                 {t('footer.description')}

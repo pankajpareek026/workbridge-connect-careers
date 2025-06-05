@@ -34,8 +34,8 @@ const ForgotPassword = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Briefcase className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+            <Briefcase className="h-8 w-8 text-blue-600" />
+            <h1 className="text-2xl font-bold text-blue-600">Jay shree joranath jobs</h1>
           </div>
           <h2 className="text-2xl font-bold text-gray-900">Reset Password</h2>
           <p className="text-gray-600 mt-2">Enter your email to receive a reset link</p>
@@ -59,7 +59,7 @@ const ForgotPassword = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-workbridge-primary hover:bg-workbridge-primary/90"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                   disabled={isLoading || !email}
                 >
                   {isLoading ? (
@@ -81,7 +81,7 @@ const ForgotPassword = () => {
               <Button 
                 variant="ghost" 
                 onClick={() => navigate('/login')}
-                className="text-workbridge-primary"
+                className="text-blue-600"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Sign In

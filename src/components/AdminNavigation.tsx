@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -91,7 +92,7 @@ const AdminNavigation = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-blue-600" />
-            <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath Admin</h1>
+            <h1 className="text-2xl font-bold text-blue-600">Jay shree joranath jobs Admin</h1>
           </div>
           
           {/* Desktop Navigation */}
