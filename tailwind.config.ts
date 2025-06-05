@@ -58,9 +58,9 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				workbridge: {
-					primary: '#2563eb',
-					secondary: '#3b82f6',
+				'jay-shree-joranath-jobs': {
+					primary: '#4F46E5',
+					secondary: '#6366F1',
 					accent: '#60a5fa',
 					success: '#10b981',
 					warning: '#f59e0b',

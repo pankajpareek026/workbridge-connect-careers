@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,10 +7,26 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AdminContact from '@/components/AdminContact';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import JobPopup from '@/components/JobPopup';
+import React, { useState, useEffect } from 'react';
 
 const Index = () => {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  useEffect(() => {
+    const hasPopupBeenShown = localStorage.getItem('jobPopupShown');
+    if (!hasPopupBeenShown) {
+      setIsPopupOpen(true);
+      localStorage.setItem('jobPopupShown', 'true');
+    }
+  }, []);
+
+  const handlePopupClick = () => {
+    setIsPopupOpen(false);
+    navigate('/job-browser'); // Redirect to job browser page
+  };
 
   const stats = [
     { label: t('stats.activeJobs'), value: '500+', icon: Briefcase },
@@ -62,21 +78,21 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">Jai Jor Nath</h1>
+              <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
             </div>
             <div className="flex items-center space-x-2 md:space-x-4">
               <LanguageSwitcher />
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 onClick={() => navigate('/contact-us')}
-                className="text-gray-600 hover:text-workbridge-primary text-sm"
+                className="text-gray-600 hover:text-jay-shree-joranath-jobs-primary text-sm"
               >
                 {t('nav.contact')}
               </Button>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 onClick={() => navigate('/admin-dashboard')}
-                className="text-gray-600 hover:text-workbridge-primary hidden sm:flex"
+                className="text-gray-600 hover:text-jay-shree-joranath-jobs-primary hidden sm:flex"
               >
                 <Shield className="h-4 w-4 mr-2" />
                 {t('nav.admin')}
@@ -84,7 +100,7 @@ const Index = () => {
               <Button variant="outline" onClick={() => navigate('/login')} className="text-sm">
                 {t('nav.signIn')}
               </Button>
-              <Button onClick={() => navigate('/register')} className="bg-workbridge-primary text-sm">
+              <Button onClick={() => navigate('/register')} className="bg-jay-shree-joranath-jobs-primary text-sm">
                 {t('nav.getStarted')}
               </Button>
             </div>
@@ -96,29 +112,29 @@ const Index = () => {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-workbridge-primary/10 text-workbridge-primary">
+            <Badge className="mb-6 bg-jay-shree-joranath-jobs-primary/10 text-jay-shree-joranath-jobs-primary">
               {t('hero.tagline')}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               {t('hero.title')}
-              <span className="text-workbridge-primary"> {t('hero.titleHighlight')}</span>
+              <span className="text-jay-shree-joranath-jobs-primary"> {t('hero.titleHighlight')}</span>
               {language === 'hi' && <span> {t('hero.titleEnd')}</span>}
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
               {t('hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-workbridge-primary hover:bg-workbridge-primary/90 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
+              <Button
+                size="lg"
+                className="bg-jay-shree-joranath-jobs-primary hover:bg-jay-shree-joranath-jobs-primary/90 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
                 {t('hero.findJob')}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
               >
@@ -137,8 +153,8 @@ const Index = () => {
               const Icon = stat.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-workbridge-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-workbridge-primary" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-jay-shree-joranath-jobs-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-jay-shree-joranath-jobs-primary" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
                   <p className="text-gray-600 text-sm md:text-base">{stat.label}</p>
@@ -164,8 +180,8 @@ const Index = () => {
               return (
                 <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white/80 backdrop-blur-sm">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-workbridge-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-workbridge-primary" />
+                    <div className="w-12 h-12 bg-jay-shree-joranath-jobs-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Icon className="h-6 w-6 text-jay-shree-joranath-jobs-primary" />
                     </div>
                     <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
                   </CardHeader>
@@ -180,7 +196,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-r from-workbridge-primary/5 to-workbridge-secondary/5">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-jay-shree-joranath-jobs-primary/5 to-jay-shree-joranath-jobs-secondary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('testimonials.title')}</h2>
@@ -215,7 +231,7 @@ const Index = () => {
       <AdminContact />
 
       {/* CTA Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-r from-workbridge-primary to-workbridge-secondary">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-jay-shree-joranath-jobs-primary to-jay-shree-joranath-jobs-secondary">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('cta.title')}</h2>
@@ -223,8 +239,8 @@ const Index = () => {
               {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="secondary"
                 className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/register')}
@@ -244,13 +260,13 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Briefcase className="h-6 w-6" />
-                <span className="text-xl font-bold">Jai Jor Nath</span>
+                <span className="text-xl font-bold">Jay shree joranath jobs</span>
               </div>
               <p className="text-gray-400 text-sm">
                 {t('footer.description')}
               </p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
               <div className="space-y-2 text-sm">
@@ -265,7 +281,7 @@ const Index = () => {
                 </button>
               </div>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">{t('footer.jobSeekers')}</h3>
               <div className="space-y-2 text-sm">
@@ -280,7 +296,7 @@ const Index = () => {
                 </button>
               </div>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">{t('footer.employers')}</h3>
               <div className="space-y-2 text-sm">
@@ -296,12 +312,14 @@ const Index = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
             <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>
+
+      <JobPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} onButtonClick={handlePopupClick} />
     </div>
   );
 };
