@@ -124,84 +124,82 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section with Blue Gradient - Fixed Layout */}
-      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-12 sm:py-20 min-h-[400px] sm:min-h-[500px] flex items-center">
+      {/* Hero Section - Clean and Centered Design */}
+      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-16 sm:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             {/* Main Search Card */}
-            <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0 p-6 sm:p-8">
-              <div className="text-center mb-6 sm:mb-8">
-                <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-700 mb-4">
+            <Card className="bg-white shadow-2xl border-0 rounded-lg overflow-hidden">
+              <CardHeader className="text-center py-8 px-6">
+                <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-2">
                   Find Jobs In Your City
-                </h1>
-              </div>
+                </CardTitle>
+              </CardHeader>
               
-              {/* Search Form - Fixed Layout */}
-              <div className="flex flex-col lg:flex-row gap-4 items-end">
-                {/* Job Input */}
-                <div className="flex-1 min-w-0">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Which Job?
-                  </label>
-                  <Input 
-                    placeholder="Designation, Job Title or any keyword"
-                    className="h-12 text-base border-gray-300 w-full"
-                  />
-                </div>
-                
-                {/* Location Input */}
-                <div className="flex-1 min-w-0">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Where?
-                  </label>
-                  <Input 
-                    placeholder="Area, City or Pincode"
-                    className="h-12 text-base border-gray-300 w-full"
-                  />
-                </div>
-                
-                {/* Find Jobs Button */}
-                <div className="w-full lg:w-auto">
+              <CardContent className="px-6 pb-8">
+                {/* Search Form */}
+                <div className="space-y-6">
+                  {/* Job Input */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Which Job?
+                    </label>
+                    <Input 
+                      placeholder="Designation, Job Title or any keyword"
+                      className="h-12 text-base border-gray-300"
+                    />
+                  </div>
+                  
+                  {/* Location Input */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Where?
+                    </label>
+                    <Input 
+                      placeholder="Area, City or Pincode"
+                      className="h-12 text-base border-gray-300"
+                    />
+                  </div>
+                  
+                  {/* Find Jobs Button */}
                   <Button 
-                    className="w-full lg:w-auto h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base px-8"
+                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg"
                     onClick={() => navigate('/jobs')}
                   >
                     FIND JOBS
                   </Button>
-                </div>
-                
-                {/* Upload Resume Button */}
-                <div className="w-full lg:w-auto">
+                  
+                  {/* Upload Resume Button */}
                   <Button 
-                    className="w-full lg:w-auto h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-base px-6"
+                    className="w-full h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-lg"
                     onClick={() => navigate('/register')}
                   >
-                    <Upload className="h-4 w-4 mr-2" />
+                    <Upload className="h-5 w-5 mr-2" />
                     UPLOAD RESUME
                   </Button>
-                  <p className="text-xs text-red-500 mt-1 text-center lg:text-left">
+                  <p className="text-xs text-red-500 text-center">
                     Allowed: pdf, doc or docx. Max: 2MB
                   </p>
                 </div>
-              </div>
+              </CardContent>
             </Card>
-            
-            {/* Quick Search Icon */}
-            <div className="fixed bottom-6 right-6 z-40">
-              <Button 
-                size="lg"
-                className="w-16 h-16 rounded-full bg-white text-blue-600 hover:bg-gray-50 shadow-lg border border-gray-200"
-                onClick={() => navigate('/jobs')}
-              >
-                <div className="text-center">
-                  <Search className="h-6 w-6 mx-auto mb-1" />
-                  <span className="text-xs font-medium">JOBS</span>
-                </div>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
+
+      {/* Floating Search Button */}
+      <div className="fixed bottom-6 right-6 z-40">
+        <Button 
+          size="lg"
+          className="w-16 h-16 rounded-full bg-white text-blue-600 hover:bg-gray-50 shadow-lg border border-gray-200"
+          onClick={() => navigate('/jobs')}
+        >
+          <div className="text-center">
+            <Search className="h-6 w-6 mx-auto mb-1" />
+            <span className="text-xs font-medium">JOBS</span>
+          </div>
+        </Button>
+      </div>
 
       {/* Stats Section */}
       <section className="py-12 sm:py-16 bg-gray-50">
