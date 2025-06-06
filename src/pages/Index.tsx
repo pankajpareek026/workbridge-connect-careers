@@ -16,13 +16,9 @@ const Index = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    // Show popup after a small delay to ensure proper rendering
+    // Always show popup after a small delay
     const timer = setTimeout(() => {
-      const hasPopupBeenShown = localStorage.getItem('jobPopupShown');
-      if (!hasPopupBeenShown) {
-        setIsPopupOpen(true);
-        localStorage.setItem('jobPopupShown', 'true');
-      }
+      setIsPopupOpen(true);
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -87,9 +83,10 @@ const Index = () => {
               </div>
               <h1 className="text-lg sm:text-2xl font-bold text-blue-600">
                 Jay shree joranath jobs
+                
               </h1>
             </div>
-            
+
             {/* Navigation Menu */}
             <div className="hidden lg:flex items-center space-x-8">
               <Button variant="ghost" className="text-gray-700 hover:text-blue-600 text-sm">
@@ -108,7 +105,7 @@ const Index = () => {
                 CAREER GUIDE
               </Button>
             </div>
-            
+
             <div className="flex items-center space-x-2 sm:space-x-4">
               <LanguageSwitcher />
               <Button variant="ghost" onClick={() => navigate('/login')} className="text-blue-600 hover:text-blue-700 text-sm sm:text-base">
@@ -124,72 +121,57 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Clean and Centered Design */}
-      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-16 sm:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            {/* Main Search Card */}
-            <Card className="bg-white shadow-2xl border-0 rounded-lg overflow-hidden">
-              <CardHeader className="text-center py-8 px-6">
-                <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-2">
-                  Find Jobs In Your City
-                </CardTitle>
-              </CardHeader>
-              
-              <CardContent className="px-6 pb-8">
-                {/* Search Form */}
-                <div className="space-y-6">
-                  {/* Job Input */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Which Job?
-                    </label>
-                    <Input 
-                      placeholder="Designation, Job Title or any keyword"
-                      className="h-12 text-base border-gray-300"
-                    />
-                  </div>
-                  
-                  {/* Location Input */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Where?
-                    </label>
-                    <Input 
-                      placeholder="Area, City or Pincode"
-                      className="h-12 text-base border-gray-300"
-                    />
-                  </div>
-                  
-                  {/* Find Jobs Button */}
-                  <Button 
-                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg"
-                    onClick={() => navigate('/jobs')}
-                  >
-                    FIND JOBS
-                  </Button>
-                  
-                  {/* Upload Resume Button */}
-                  <Button 
-                    className="w-full h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-lg"
-                    onClick={() => navigate('/register')}
-                  >
-                    <Upload className="h-5 w-5 mr-2" />
-                    UPLOAD RESUME
-                  </Button>
-                  <p className="text-xs text-red-500 text-center">
-                    Allowed: pdf, doc or docx. Max: 2MB
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+      {/* Hero Section - Responsive and Modern */}
+      <section className="bg-blue-700 py-12 px-2">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-6 md:p-10 flex flex-col items-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6 text-center">
+              Find Jobs In Your City
+            </h2>
+            <form
+              className="w-full flex flex-col md:flex-row gap-4 items-stretch"
+              onSubmit={e => { e.preventDefault(); navigate('/jobs'); }}
+            >
+              <div className="flex-1">
+                <Input
+                  placeholder="Designation, Job Title or any keyword"
+                  className="h-12 text-base border-gray-300"
+                />
+                <label className="block text-xs text-gray-500 mt-1 ml-1">Which Job?</label>
+              </div>
+              <div className="flex-1">
+                <Input
+                  placeholder="Area, City or Pincode"
+                  className="h-12 text-base border-gray-300"
+                />
+                <label className="block text-xs text-gray-500 mt-1 ml-1">Where?</label>
+              </div>
+              <Button
+                type="submit"
+                className="h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base min-w-[120px] shadow"
+              >
+                FIND JOBS
+              </Button>
+              <div className="flex flex-col items-center">
+                <Button
+                  type="button"
+                  className="h-12 bg-red-500 hover:bg-red-600 text-white font-semibold text-base min-w-[160px] shadow"
+                  onClick={() => navigate('/register')}
+                >
+                  UPLOAD RESUME
+                </Button>
+                <span className="text-xs text-red-500 mt-1 text-center">
+                  Allowed: pdf, doc or docx. Max: 2MB
+                </span>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
       {/* Floating Search Button */}
       <div className="fixed bottom-6 right-6 z-40">
-        <Button 
+        <Button
           size="lg"
           className="w-16 h-16 rounded-full bg-white text-blue-600 hover:bg-gray-50 shadow-lg border border-gray-200"
           onClick={() => navigate('/jobs')}
@@ -260,7 +242,7 @@ const Index = () => {
               Ready to start your journey? Contact us today!
             </p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
@@ -271,14 +253,14 @@ const Index = () => {
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Phone Support</h3>
                   <p className="text-sm sm:text-base text-gray-600 mb-4">Available 24/7 for urgent queries</p>
                   <div className="space-y-2">
-                    <a 
-                      href="tel:+919227049220" 
+                    <a
+                      href="tel:+919227049220"
                       className="block text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm sm:text-base"
                     >
                       +91 92270 49220
                     </a>
-                    <a 
-                      href="tel:+919157668193" 
+                    <a
+                      href="tel:+919157668193"
                       className="block text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm sm:text-base"
                     >
                       +91 91576 68193
@@ -287,7 +269,7 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 sm:p-8 text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -295,15 +277,15 @@ const Index = () => {
                   </div>
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Email Support</h3>
                   <p className="text-sm sm:text-base text-gray-600 mb-4">We respond within 24 hours</p>
-                  <a 
-                    href="mailto:support@jaijonath.com" 
+                  <a
+                    href="mailto:support@jaijonath.com"
                     className="text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm sm:text-base"
                   >
                     support@jaijonath.com
                   </a>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 sm:p-8 text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">

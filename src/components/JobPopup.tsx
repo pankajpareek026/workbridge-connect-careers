@@ -15,7 +15,7 @@ const JobPopup: React.FC<JobPopupProps> = ({ isOpen, onClose, onButtonClick }) =
             <DialogContent className="sm:max-w-[425px] max-w-[90vw] mx-4 bg-white border-2 border-gray-200 shadow-xl">
                 <DialogHeader>
                     <DialogTitle className="text-center text-xl sm:text-2xl font-bold text-gray-900 px-2">
-                        Jay shree joranath jobs में जॉब के लिए
+                    सूरत में जॉब के लिए
                     </DialogTitle>
                     <DialogDescription className="text-center text-gray-600 text-sm sm:text-base px-2">
                         Click the button below to find jobs in your city.
