@@ -89,7 +89,7 @@ const JobSeekerOnboarding = () => {
                 <Input
                   id="fullName"
                   value={personalInfo.fullName}
-                  onChange={(e) => setPersonalInfo({...personalInfo, fullName: e.target.value})}
+                  onChange={(e) => setPersonalInfo({ ...personalInfo, fullName: e.target.value })}
                   placeholder="Enter your full name"
                 />
               </div>
@@ -99,12 +99,12 @@ const JobSeekerOnboarding = () => {
                   id="dateOfBirth"
                   type="date"
                   value={personalInfo.dateOfBirth}
-                  onChange={(e) => setPersonalInfo({...personalInfo, dateOfBirth: e.target.value})}
+                  onChange={(e) => setPersonalInfo({ ...personalInfo, dateOfBirth: e.target.value })}
                 />
               </div>
               <div>
                 <Label htmlFor="gender">Gender</Label>
-                <Select onValueChange={(value) => setPersonalInfo({...personalInfo, gender: value})}>
+                <Select onValueChange={(value) => setPersonalInfo({ ...personalInfo, gender: value })}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select gender" />
                   </SelectTrigger>
@@ -120,7 +120,7 @@ const JobSeekerOnboarding = () => {
                 <Input
                   id="location"
                   value={personalInfo.location}
-                  onChange={(e) => setPersonalInfo({...personalInfo, location: e.target.value})}
+                  onChange={(e) => setPersonalInfo({ ...personalInfo, location: e.target.value })}
                   placeholder="City, State"
                 />
               </div>
@@ -289,7 +289,7 @@ const JobSeekerOnboarding = () => {
                 <Input
                   id="preferredLocations"
                   value={preferences.preferredLocations}
-                  onChange={(e) => setPreferences({...preferences, preferredLocations: e.target.value})}
+                  onChange={(e) => setPreferences({ ...preferences, preferredLocations: e.target.value })}
                   placeholder="e.g., Mumbai, Delhi, Bangalore"
                 />
               </div>
@@ -298,7 +298,7 @@ const JobSeekerOnboarding = () => {
                 <Input
                   id="jobCategories"
                   value={preferences.jobCategories}
-                  onChange={(e) => setPreferences({...preferences, jobCategories: e.target.value})}
+                  onChange={(e) => setPreferences({ ...preferences, jobCategories: e.target.value })}
                   placeholder="e.g., IT, Sales, Marketing"
                 />
               </div>
@@ -307,13 +307,13 @@ const JobSeekerOnboarding = () => {
                 <Input
                   id="expectedSalary"
                   value={preferences.expectedSalary}
-                  onChange={(e) => setPreferences({...preferences, expectedSalary: e.target.value})}
+                  onChange={(e) => setPreferences({ ...preferences, expectedSalary: e.target.value })}
                   placeholder="e.g., 50000"
                 />
               </div>
               <div>
                 <Label htmlFor="jobType">Preferred Job Type</Label>
-                <Select onValueChange={(value) => setPreferences({...preferences, jobType: value})}>
+                <Select onValueChange={(value) => setPreferences({ ...preferences, jobType: value })}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select job type" />
                   </SelectTrigger>
@@ -326,7 +326,7 @@ const JobSeekerOnboarding = () => {
                 </Select>
               </div>
             </div>
-            
+
             <div className="mt-6">
               <Label>Upload Resume</Label>
               <div className="mt-2">
@@ -351,7 +351,7 @@ const JobSeekerOnboarding = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Briefcase className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+            <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
           </div>
           <h2 className="text-2xl font-bold text-gray-900">Complete Your Profile</h2>
           <p className="text-gray-600 mt-2">Step {currentStep} of 4</p>
@@ -363,16 +363,14 @@ const JobSeekerOnboarding = () => {
             {[1, 2, 3, 4].map((step) => (
               <div
                 key={step}
-                className={`flex items-center ${
-                  step <= currentStep ? 'text-workbridge-primary' : 'text-gray-400'
-                }`}
+                className={`flex items-center ${step <= currentStep ? 'text-workbridge-primary' : 'text-gray-400'
+                  }`}
               >
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-                    step <= currentStep
+                  className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${step <= currentStep
                       ? 'border-workbridge-primary bg-workbridge-primary text-white'
                       : 'border-gray-300'
-                  }`}
+                    }`}
                 >
                   {step}
                 </div>
@@ -397,7 +395,7 @@ const JobSeekerOnboarding = () => {
         <Card className="shadow-lg border-0">
           <CardContent className="p-6">
             {renderStep()}
-            
+
             <div className="flex justify-between mt-8">
               <Button
                 variant="outline"

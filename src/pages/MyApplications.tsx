@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -69,7 +68,7 @@ const MyApplications = () => {
 
   const filteredApplications = applications.filter(app => {
     const matchesSearch = app.jobTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         app.company.toLowerCase().includes(searchTerm.toLowerCase());
+      app.company.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === 'all' || app.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -82,7 +81,7 @@ const MyApplications = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Briefcase className="h-8 w-8 text-workbridge-primary" />
-              <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+              <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" onClick={() => navigate('/job-seeker-dashboard')}>
@@ -176,18 +175,18 @@ const MyApplications = () => {
                     Application #{application.id}
                   </div>
                   <div className="flex space-x-2">
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       size="sm"
                       onClick={() => navigate(`/job/${application.jobId}`)}
                     >
                       <Eye className="h-4 w-4 mr-2" />
                       View Job
                     </Button>
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       size="sm"
-                      onClick={() => {/* Handle application details */}}
+                      onClick={() => {/* Handle application details */ }}
                     >
                       View Application
                     </Button>
@@ -204,7 +203,7 @@ const MyApplications = () => {
               <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">No Applications Found</h3>
               <p className="text-gray-600 mb-6">
-                {searchTerm || statusFilter !== 'all' 
+                {searchTerm || statusFilter !== 'all'
                   ? 'Try adjusting your search or filter criteria'
                   : "You haven't applied to any jobs yet"
                 }

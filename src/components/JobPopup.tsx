@@ -1,21 +1,22 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useNavigate } from 'react-router-dom';
 
 interface JobPopupProps {
     isOpen: boolean;
     onClose: () => void;
-    onButtonClick: () => void;
 }
 
-const JobPopup: React.FC<JobPopupProps> = ({ isOpen, onClose, onButtonClick }) => {
+const JobPopup: React.FC<JobPopupProps> = ({ isOpen, onClose }) => {
+    const navigate = useNavigate();
+
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px] max-w-[90vw] mx-4 bg-white border-2 border-gray-200 shadow-xl">
                 <DialogHeader>
                     <DialogTitle className="text-center text-xl sm:text-2xl font-bold text-gray-900 px-2">
-                    सूरत में जॉब के लिए
+                        सूरत में जॉब के लिए
                     </DialogTitle>
                     <DialogDescription className="text-center text-gray-600 text-sm sm:text-base px-2">
                         Click the button below to find jobs in your city.
@@ -25,7 +26,7 @@ const JobPopup: React.FC<JobPopupProps> = ({ isOpen, onClose, onButtonClick }) =
                     <Button
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded text-sm sm:text-base"
                         onClick={() => {
-                            onButtonClick();
+                            navigate('/job-application');
                             onClose();
                         }}
                     >

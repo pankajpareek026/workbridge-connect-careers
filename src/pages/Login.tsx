@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,7 +15,7 @@ const Login = () => {
 
   const handleLogin = async (userType: 'jobseeker' | 'employer' | 'admin') => {
     setIsLoading(true);
-    
+
     // Simulate login process
     setTimeout(() => {
       setIsLoading(false);
@@ -24,7 +23,7 @@ const Login = () => {
         title: "Login Successful",
         description: `Welcome back! Redirecting to your ${userType} dashboard.`,
       });
-      
+
       if (userType === 'jobseeker') {
         navigate('/job-seeker-dashboard');
       } else if (userType === 'employer') {
@@ -42,7 +41,7 @@ const Login = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Briefcase className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+            <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
           </div>
           <h2 className="text-2xl font-bold text-gray-900">Welcome Back</h2>
           <p className="text-gray-600 mt-2">Sign in to your account</p>
@@ -171,8 +170,8 @@ const Login = () => {
             </Tabs>
 
             <div className="mt-6 text-center space-y-4">
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 className="text-workbridge-primary"
                 onClick={() => navigate('/forgot-password')}
               >
@@ -180,8 +179,8 @@ const Login = () => {
               </Button>
               <div className="text-sm text-gray-600">
                 Don't have an account?{' '}
-                <Button 
-                  variant="link" 
+                <Button
+                  variant="link"
                   className="text-workbridge-primary p-0"
                   onClick={() => navigate('/register')}
                 >

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,13 +37,13 @@ const PostJob = () => {
 
   const handleSubmit = async (isDraft: boolean = false) => {
     setIsLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
       toast({
         title: isDraft ? "Job Saved as Draft" : "Job Posted Successfully",
-        description: isDraft 
+        description: isDraft
           ? "Your job posting has been saved and can be published later."
           : "Your job posting is now live and visible to candidates.",
       });
@@ -65,7 +64,7 @@ const PostJob = () => {
               </Button>
               <div className="flex items-center space-x-2">
                 <Briefcase className="h-8 w-8 text-workbridge-primary" />
-                <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+                <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
               </div>
             </div>
           </div>
@@ -100,7 +99,7 @@ const PostJob = () => {
                         required
                       />
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="department">Department</Label>
@@ -118,7 +117,7 @@ const PostJob = () => {
                           </SelectContent>
                         </Select>
                       </div>
-                      
+
                       <div>
                         <Label htmlFor="jobType">Job Type *</Label>
                         <Select value={formData.jobType} onValueChange={(value) => handleInputChange('jobType', value)}>
@@ -197,7 +196,7 @@ const PostJob = () => {
                         required
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="requirements">Requirements *</Label>
                       <Textarea
@@ -209,7 +208,7 @@ const PostJob = () => {
                         required
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="benefits">Benefits & Perks</Label>
                       <Textarea
@@ -246,7 +245,7 @@ const PostJob = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="education">Education</Label>
                       <Select value={formData.education} onValueChange={(value) => handleInputChange('education', value)}>
@@ -263,7 +262,7 @@ const PostJob = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="deadline">Application Deadline</Label>
                       <Input
@@ -291,7 +290,7 @@ const PostJob = () => {
                       <Save className="h-4 w-4 mr-2" />
                       Save as Draft
                     </Button>
-                    
+
                     <Button
                       onClick={() => handleSubmit(false)}
                       className="w-full bg-workbridge-primary hover:bg-workbridge-primary/90"
@@ -300,7 +299,7 @@ const PostJob = () => {
                       <Send className="h-4 w-4 mr-2" />
                       {isLoading ? "Publishing..." : "Publish Job"}
                     </Button>
-                    
+
                     <p className="text-xs text-gray-500 mt-2">
                       By publishing, you agree to our terms of service and posting guidelines.
                     </p>

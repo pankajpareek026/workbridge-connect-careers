@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -35,7 +34,7 @@ const EmployerOnboarding = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     setTimeout(() => {
       setIsLoading(false);
       toast({
@@ -53,7 +52,7 @@ const EmployerOnboarding = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Briefcase className="h-8 w-8 text-workbridge-primary" />
-            <h1 className="text-2xl font-bold text-workbridge-primary">WorkBridge</h1>
+            <h1 className="text-2xl font-bold text-workbridge-primary">Jay shree joranath jobs</h1>
           </div>
           <h2 className="text-2xl font-bold text-gray-900">Setup Your Company Profile</h2>
           <p className="text-gray-600 mt-2">Tell us about your organization</p>
@@ -74,14 +73,14 @@ const EmployerOnboarding = () => {
                     <Input
                       id="companyName"
                       value={companyData.companyName}
-                      onChange={(e) => setCompanyData({...companyData, companyName: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, companyName: e.target.value })}
                       placeholder="Enter company name"
                       required
                     />
                   </div>
                   <div>
                     <Label htmlFor="industry">Industry *</Label>
-                    <Select onValueChange={(value) => setCompanyData({...companyData, industry: value})}>
+                    <Select onValueChange={(value) => setCompanyData({ ...companyData, industry: value })}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select industry" />
                       </SelectTrigger>
@@ -100,7 +99,7 @@ const EmployerOnboarding = () => {
                   </div>
                   <div>
                     <Label htmlFor="companySize">Company Size *</Label>
-                    <Select onValueChange={(value) => setCompanyData({...companyData, companySize: value})}>
+                    <Select onValueChange={(value) => setCompanyData({ ...companyData, companySize: value })}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select company size" />
                       </SelectTrigger>
@@ -118,18 +117,18 @@ const EmployerOnboarding = () => {
                     <Input
                       id="website"
                       value={companyData.website}
-                      onChange={(e) => setCompanyData({...companyData, website: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, website: e.target.value })}
                       placeholder="https://www.company.com"
                     />
                   </div>
                 </div>
-                
+
                 <div className="mt-4">
                   <Label htmlFor="description">Company Description</Label>
                   <Textarea
                     id="description"
                     value={companyData.description}
-                    onChange={(e) => setCompanyData({...companyData, description: e.target.value})}
+                    onChange={(e) => setCompanyData({ ...companyData, description: e.target.value })}
                     placeholder="Describe your company, mission, and values"
                     rows={4}
                   />
@@ -154,7 +153,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="address"
                       value={companyData.address}
-                      onChange={(e) => setCompanyData({...companyData, address: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, address: e.target.value })}
                       placeholder="Enter complete address"
                       required
                     />
@@ -164,7 +163,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="city"
                       value={companyData.city}
-                      onChange={(e) => setCompanyData({...companyData, city: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, city: e.target.value })}
                       placeholder="City"
                       required
                     />
@@ -174,7 +173,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="state"
                       value={companyData.state}
-                      onChange={(e) => setCompanyData({...companyData, state: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, state: e.target.value })}
                       placeholder="State"
                       required
                     />
@@ -184,7 +183,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="pincode"
                       value={companyData.pincode}
-                      onChange={(e) => setCompanyData({...companyData, pincode: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, pincode: e.target.value })}
                       placeholder="PIN Code"
                       required
                     />
@@ -194,7 +193,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="gstNumber"
                       value={companyData.gstNumber}
-                      onChange={(e) => setCompanyData({...companyData, gstNumber: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, gstNumber: e.target.value })}
                       placeholder="GST Number"
                     />
                   </div>
@@ -210,7 +209,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="contactPerson"
                       value={companyData.contactPerson}
-                      onChange={(e) => setCompanyData({...companyData, contactPerson: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, contactPerson: e.target.value })}
                       placeholder="Full name"
                       required
                     />
@@ -220,7 +219,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="designation"
                       value={companyData.designation}
-                      onChange={(e) => setCompanyData({...companyData, designation: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, designation: e.target.value })}
                       placeholder="Job title"
                       required
                     />
@@ -230,7 +229,7 @@ const EmployerOnboarding = () => {
                     <Input
                       id="phone"
                       value={companyData.phone}
-                      onChange={(e) => setCompanyData({...companyData, phone: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, phone: e.target.value })}
                       placeholder="+1 (555) 000-0000"
                       required
                     />
@@ -241,7 +240,7 @@ const EmployerOnboarding = () => {
                       id="email"
                       type="email"
                       value={companyData.email}
-                      onChange={(e) => setCompanyData({...companyData, email: e.target.value})}
+                      onChange={(e) => setCompanyData({ ...companyData, email: e.target.value })}
                       placeholder="contact@company.com"
                       required
                     />

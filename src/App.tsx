@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -36,6 +35,7 @@ import AdminActivity from "./pages/AdminActivity";
 import AdminReviews from "./pages/AdminReviews";
 import AdminSettings from "./pages/AdminSettings";
 import NotFound from "./pages/NotFound";
+import JobApplication from './pages/JobApplication';
 
 const queryClient = new QueryClient();
 
@@ -76,6 +76,7 @@ const App = () => (
               <Route path="/admin-activity" element={<AdminActivity />} />
               <Route path="/admin-reviews" element={<AdminReviews />} />
               <Route path="/admin-settings" element={<AdminSettings />} />
+              <Route path="/job-application" element={<JobApplication />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
