@@ -37,7 +37,7 @@ const JobSeekerDashboard = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Briefcase className="h-8 w-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
+              <h1 className="text-2xl font-bold text-blue-600">Jay shree joranath job</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" onClick={() => navigate('/profile')}>

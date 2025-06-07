@@ -66,8 +66,8 @@ const JobBrowser = () => {
   ];
 
   const toggleSaveJob = (jobId: number) => {
-    setSavedJobs(prev => 
-      prev.includes(jobId) 
+    setSavedJobs(prev =>
+      prev.includes(jobId)
         ? prev.filter(id => id !== jobId)
         : [...prev, jobId]
     );
@@ -75,10 +75,10 @@ const JobBrowser = () => {
 
   const filteredJobs = jobs.filter(job => {
     const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.company.toLowerCase().includes(searchTerm.toLowerCase());
+      job.company.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesLocation = !locationFilter || job.location.toLowerCase().includes(locationFilter.toLowerCase());
     const matchesType = jobTypeFilter === 'all' || job.type === jobTypeFilter;
-    
+
     return matchesSearch && matchesLocation && matchesType;
   });
 
@@ -90,7 +90,7 @@ const JobBrowser = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Briefcase className="h-8 w-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-blue-600">Jai Jor Nath</h1>
+              <h1 className="text-2xl font-bold text-blue-600">Jay shree joranath job</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" onClick={() => navigate('/job-seeker-dashboard')}>
@@ -202,7 +202,7 @@ const JobBrowser = () => {
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent 
+              <CardContent
                 className="pt-0"
                 onClick={() => navigate(`/job/${job.id}`)}
               >

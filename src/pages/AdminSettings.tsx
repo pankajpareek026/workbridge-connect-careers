@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,12 +8,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
-import { 
-  Settings, 
-  Globe, 
-  Shield, 
-  Database, 
-  Mail, 
+import {
+  Settings,
+  Globe,
+  Shield,
+  Database,
+  Mail,
   Bell,
   Save,
   RefreshCw,
@@ -26,7 +25,7 @@ import { useToast } from '@/hooks/use-toast';
 const AdminSettings = () => {
   const { toast } = useToast();
   const [settings, setSettings] = useState({
-    siteName: 'Jai Jor Nath',
+    siteName: 'Jay shree joranath job',
     siteDescription: 'Connect talent with opportunities',
     maintenanceMode: false,
     userRegistration: true,
@@ -55,7 +54,7 @@ const AdminSettings = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <AdminNavigation />
-      
+
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Settings</h1>
@@ -87,7 +86,7 @@ const AdminSettings = () => {
                     <Input
                       id="siteName"
                       value={settings.siteName}
-                      onChange={(e) => setSettings({...settings, siteName: e.target.value})}
+                      onChange={(e) => setSettings({ ...settings, siteName: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
@@ -96,17 +95,17 @@ const AdminSettings = () => {
                       id="maxJobs"
                       type="number"
                       value={settings.maxJobsPerCompany}
-                      onChange={(e) => setSettings({...settings, maxJobsPerCompany: parseInt(e.target.value)})}
+                      onChange={(e) => setSettings({ ...settings, maxJobsPerCompany: parseInt(e.target.value) })}
                     />
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="siteDescription">Site Description</Label>
                   <Textarea
                     id="siteDescription"
                     value={settings.siteDescription}
-                    onChange={(e) => setSettings({...settings, siteDescription: e.target.value})}
+                    onChange={(e) => setSettings({ ...settings, siteDescription: e.target.value })}
                   />
                 </div>
 
@@ -118,10 +117,10 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.maintenanceMode}
-                      onCheckedChange={(checked) => setSettings({...settings, maintenanceMode: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, maintenanceMode: checked })}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label>User Registration</Label>
@@ -129,7 +128,7 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.userRegistration}
-                      onCheckedChange={(checked) => setSettings({...settings, userRegistration: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, userRegistration: checked })}
                     />
                   </div>
                 </div>
@@ -160,10 +159,10 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.emailVerification}
-                      onCheckedChange={(checked) => setSettings({...settings, emailVerification: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, emailVerification: checked })}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label>Auto-approve Job Posts</Label>
@@ -171,10 +170,10 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.autoApproveJobs}
-                      onCheckedChange={(checked) => setSettings({...settings, autoApproveJobs: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, autoApproveJobs: checked })}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label>Auto-approve Companies</Label>
@@ -182,7 +181,7 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.autoApproveCompanies}
-                      onCheckedChange={(checked) => setSettings({...settings, autoApproveCompanies: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, autoApproveCompanies: checked })}
                     />
                   </div>
                 </div>
@@ -193,7 +192,7 @@ const AdminSettings = () => {
                     id="jobExpiration"
                     type="number"
                     value={settings.jobExpirationDays}
-                    onChange={(e) => setSettings({...settings, jobExpirationDays: parseInt(e.target.value)})}
+                    onChange={(e) => setSettings({ ...settings, jobExpirationDays: parseInt(e.target.value) })}
                   />
                   <p className="text-sm text-gray-500">Jobs will automatically expire after this many days</p>
                 </div>
@@ -222,7 +221,7 @@ const AdminSettings = () => {
                     <Input
                       id="smtpServer"
                       value={settings.smtpServer}
-                      onChange={(e) => setSettings({...settings, smtpServer: e.target.value})}
+                      onChange={(e) => setSettings({ ...settings, smtpServer: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
@@ -231,7 +230,7 @@ const AdminSettings = () => {
                       id="smtpPort"
                       type="number"
                       value={settings.smtpPort}
-                      onChange={(e) => setSettings({...settings, smtpPort: parseInt(e.target.value)})}
+                      onChange={(e) => setSettings({ ...settings, smtpPort: parseInt(e.target.value) })}
                     />
                   </div>
                 </div>
@@ -241,7 +240,7 @@ const AdminSettings = () => {
                   <Input
                     id="smtpUsername"
                     value={settings.smtpUsername}
-                    onChange={(e) => setSettings({...settings, smtpUsername: e.target.value})}
+                    onChange={(e) => setSettings({ ...settings, smtpUsername: e.target.value })}
                   />
                 </div>
 
@@ -280,10 +279,10 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.notifyNewUsers}
-                      onCheckedChange={(checked) => setSettings({...settings, notifyNewUsers: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, notifyNewUsers: checked })}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label>New Job Notifications</Label>
@@ -291,10 +290,10 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.notifyNewJobs}
-                      onCheckedChange={(checked) => setSettings({...settings, notifyNewJobs: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, notifyNewJobs: checked })}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label>Application Notifications</Label>
@@ -302,7 +301,7 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.notifyNewApplications}
-                      onCheckedChange={(checked) => setSettings({...settings, notifyNewApplications: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, notifyNewApplications: checked })}
                     />
                   </div>
                 </div>
@@ -333,7 +332,7 @@ const AdminSettings = () => {
                     </div>
                     <Switch
                       checked={settings.backupEnabled}
-                      onCheckedChange={(checked) => setSettings({...settings, backupEnabled: checked})}
+                      onCheckedChange={(checked) => setSettings({ ...settings, backupEnabled: checked })}
                     />
                   </div>
                 </div>

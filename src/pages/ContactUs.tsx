@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -17,7 +16,7 @@ const ContactUs = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsLoading(false);
@@ -39,7 +38,7 @@ const ContactUs = () => {
                 <Briefcase className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Jai Jor Nath
+                Jay shree joranath job
               </h1>
             </div>
             <Button variant="outline" onClick={() => navigate('/')} className="border-blue-200 hover:bg-blue-50">
