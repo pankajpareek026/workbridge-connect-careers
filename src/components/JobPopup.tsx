@@ -13,7 +13,10 @@ const JobPopup: React.FC<JobPopupProps> = ({ isOpen, onClose }) => {
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[425px] max-w-[90vw] mx-4 bg-white border-2 border-gray-200 shadow-xl">
+            <DialogContent
+                hideClose
+                className="sm:max-w-[425px] max-w-[90vw] mx-4 bg-white border-2 border-gray-200 shadow-xl left-1/2 top-8 translate-x-[-50%] translate-y-0"
+            >
                 <DialogHeader>
                     <DialogTitle className="text-center text-xl sm:text-2xl font-bold text-gray-900 px-2">
                         सूरत में जॉब के लिए
